@@ -40,6 +40,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-spink: var(--spink);
+  --color-lpink: var(--lpink);
+  --color-nude: var(--nude);
 }
 
 :root {
@@ -76,6 +78,8 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --spink: oklch(0.62 0.2303 2.48);
+  --lpink: oklch(94.32% 0.028 358.02);
+  --nude: oklch(97.11% 0.014 50.81);
 }
 
 .dark {
@@ -117,7 +121,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-zinc-700;
+    @apply bg-background text-stone-600/90;
   }
 }
 
@@ -127,7 +131,7 @@ body {
 
 .josefin {
   font-family: "Josefin Sans", sans-serif !important;
-  font-optical-sizing: auto;
+  @apply tracking-wide
 }
 
 Button {
@@ -137,4 +141,44 @@ Button {
 /* header */
 .header-button {
   @apply hover:bg-transparent text-spink uppercase;
+}
+
+/* homepage */
+.home-title {
+  font-family: "Josefin Sans", sans-serif !important;
+  @apply text-xl font-semibold uppercase text-spink;
+}
+
+.home-skill-container {
+  background-image: url("./assets/cake-pattern.png");
+  @apply bg-lpink;
+}
+
+#skill .title {
+  @apply p-4 border-b border-spink/50 font-bold text-spink tracking-wide;
+}
+
+#skill .combo {
+@apply rounded-md overflow-hidden border border-spink bg-spink divide-y divide-spink
+}
+
+#skill .tab-list {
+  @apply grid grid-cols-5 divide-x divide-spink w-full p-0 h-48;
+}
+
+#skill .tabs-trigger {
+  @apply p-4 flex flex-col items-center justify-center gap-2 relative cursor-pointer rounded-none border-none;
+}
+
+
+#skill .tab-list span {
+  @apply font-bold tracking-wide text-lg
+}
+
+#skill .icon-container {
+  @apply size-20 bg-lpink/40 rounded-full flex justify-center items-center;
+}
+
+#skill .tab-list .icon {
+  @apply size-10;
 }
