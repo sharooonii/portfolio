@@ -135,7 +135,7 @@ export const Skill = () => {
             <TabsContent 
               key={step.title} 
               value={step.title}
-              className="bg-white/10 rounded-lg p-6"
+              className="p-6 overflow-hidden"
             >
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold">{step.title}</h2>

@@ -159,11 +159,11 @@ Button {
 }
 
 #skill .combo {
-@apply rounded-md overflow-hidden border border-spink bg-spink divide-y divide-spink
+@apply rounded-md overflow-hidden border border-spink bg-white divide-y divide-spink
 }
 
 #skill .tab-list {
-  @apply grid grid-cols-5 divide-x divide-spink w-full p-0 h-48;
+  @apply grid grid-cols-5 divide-x divide-spink w-full p-0 h-48 overflow-hidden rounded-none;
 }
 
 #skill .tabs-trigger {
