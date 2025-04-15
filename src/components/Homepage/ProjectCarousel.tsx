@@ -6,6 +6,8 @@ import asgh from "@/assets/asgh-home.png"
 import educareLogo from "@/assets/educare-company-logo.png"
 import unigelLogo from "@/assets/unigel-company-logo.png"
 import hktdc from "@/assets/hktdc.png"
+import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 const projects = [
   {
@@ -64,6 +66,12 @@ export const ProjectCarousel = () => {
             url={project.url}
           />
         ))}
+      </div>
+      <div className="flex justify-end mt-10">
+        <Button variant="ghost" className="see-more-button">
+          <span>See More Projects</span>
+          <ArrowRight className="size-5"/>
+        </Button>
       </div>
     </div>
   );

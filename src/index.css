@@ -138,6 +138,32 @@ Button {
   @apply cursor-pointer;
 }
 
+@keyframes x-bounce {
+  0%, 100% {
+    transform: translateX(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.see-more-button {
+  @apply hover:bg-transparent !p-0 hover:text-spink rounded-none text-spink font-semibold text-lg tracking-wide flex items-center gap-1;
+  transition: all 0.3s ease;
+}
+
+.see-more-button:hover {
+  animation: x-bounce 1s infinite;
+}
+
+/* Add this to ensure a smooth transition when hover ends */
+.see-more-button:not(:hover) {
+  animation: none;
+  transition: all 0.3s ease;
+}
+
 /* header */
 .header-button {
   @apply hover:bg-transparent text-spink uppercase;
@@ -159,32 +185,38 @@ Button {
 }
 
 #skill .combo {
-  @apply gap-0
+  @apply gap-0 rounded-t-xl overflow-hidden
 }
 
 #skill .tab-list {
-  @apply grid grid-cols-5 gap-1 w-full p-0 h-48 bg-transparent -mb-[1px];
+  @apply grid grid-flow-col grid-rows-5 gap-0 grid-cols-1 h-fit
+  lg:grid-flow-row lg:grid-cols-5 lg:gap-2 lg:grid-rows-1 lg:h-56
+  w-full p-0 bg-transparent -mb-[1px];
 }
 
 #skill .tabs-trigger {
-  @apply p-4 flex flex-col items-center justify-center gap-2 relative cursor-pointer rounded-t-xl rounded-b-none 
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-100
+  @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
   data-[state=active]:text-spink data-[state=active]:bg-white data-[state=active]:border-spink;
 }
 
 #skill .tabs-trigger span {
-  @apply font-bold tracking-wide text-lg
+  @apply font-bold tracking-wide text-xl
 }
 
 #skill .tabs-content {
-  @apply p-6 bg-white rounded-b-lg
+  @apply p-12 bg-white rounded-b-lg space-y-10
 }
 
 #skill .icon-container {
-  @apply size-20 bg-lpink/40 rounded-full flex justify-center items-center 
+  @apply size-8 lg:size-20 bg-lpink/40 rounded-full flex justify-center items-center 
   group-data-[state=active]:bg-spink group-data-[state=active]:text-white;
 }
 
 #skill .tab-list .icon {
-  @apply size-10;
+  @apply size-5 lg:size-10;
+}
+
+#skill .skill-col {
+  @apply space-y-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6;
 }

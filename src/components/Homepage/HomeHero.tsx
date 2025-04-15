@@ -8,7 +8,7 @@ export const HomeHero = () => {
         </h1>
         <div className="text-xl">
           <div>Hello, I am Sharon.</div>
-          <div>UI UX Designer | Frontend Developer | Based in Hong Kong</div>
+          <div>UI UX Designer | Programmer | Based in Hong Kong</div>
         </div>
       </div>
       {/* <div className="bg-black py-4 text-white">

@@ -8,381 +8,532 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-const design = [
-  // Understanding the Product
-  "User Interview",
-  "UX Research - Quantitative, Qualitative",
-  "Create User Personas",
-  "Competitor Analysis",
-
-  // Conceptual Design
-  "Create User Stories",
-  "Customer Experience Map / User Journey Map",
-  "Flow Chart",
-
-  // wireframing & Prototyping
-  "Figma",
-  "Adobe XD",
-
-  // measuring the impact
-  "Incremental A/B Testing",
-
-  // UI Design
-  "Design System",
-  "Material Design System",
-
-  // graphic design
-  "Adobe Photoshop",
-  "Adobe Illustrator",
-  
-  // motion design
-  "Adobe AfterEffect",
-  "LottieFiles",
-  "Aceternity UI",
-  "Motion"
-];
-
-const programming = [
-  // prototyping
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React.js",
-  "Vue.js",
-  "ShadcnUI, MUI, Daisy UI, Headless UI", 
-  "TailwindCSS",
-
-  // user testing
-  "Google Analytics",
-
-  // frontend development
-  "React Hook Form",
-  "Zod",
-  "TanStack Query & Table",
-  "REST API",
-  "Postman",
-  "Git - Gitlab, Github",
-  "Fork",
-
-  // backend development
-  "Node.js",
-  "PostgreSQL"
-];
+import adobexd from "@/assets/tools/adobexd.png"
+import aftereffect from "@/assets/tools/aftereffect.png"
+import canva from "@/assets/tools/canva.png"
+import figma from "@/assets/tools/figma.png"
+import fork from "@/assets/tools/fork.png"
+import googleanalytics from "@/assets/tools/googleanalytics.png"
+import illustrator from "@/assets/tools/illustrator.png"
+import lottiefiles from "@/assets/tools/lottiefiles.png"
+import midjourney from "@/assets/tools/midjourney.png"
+import motion from "@/assets/tools/motion.png"
+import notion from "@/assets/tools/notion.png"
+import photoshop from "@/assets/tools/photoshop.png"
+import postman from "@/assets/tools/postman.png"
+import premierpro from "@/assets/tools/premierpro.png"
+import shadcn from "@/assets/tools/shadcn.png"
+import vscode from "@/assets/tools/vscode.png"
+import gitlab from "@/assets/tools/gitlab.png"
+import github from "@/assets/tools/github.png"
+import tailwindcss from "@/assets/tools/tailwindcss.png"
+import react from "@/assets/tools/react.png"
+import reacthookform from "@/assets/tools/reacthookfrom.png"
+import zod from "@/assets/tools/zod.png"
+import vue from "@/assets/tools/vue.png"
+import tanstack from "@/assets/tools/tanstack.jpg"
+import mui from "@/assets/tools/mui.jpg"
+import daisyui from "@/assets/tools/daisyui.png"
+import aceternityui from "@/assets/tools/aceternityui.png"
+import typescript from "@/assets/tools/typescript.png"
+import html from "@/assets/tools/html.png"
+import css from "@/assets/tools/css.png"
+import javascript from "@/assets/tools/javascript.png"
+import axios from "@/assets/tools/axios.png"
+import git from "@/assets/tools/git.png"
+import node from '@/assets/tools/node.png'
+import restapi from "@/assets/tools/restapi.png"
+import postgresql from "@/assets/tools/postgresql.png"
+import poe from "@/assets/tools/poe.png"
+import cursor from "@/assets/tools/cursor.png"
 
 const steps = [
-  { 
-    icon: Lightbulb, 
-    title: "Brainstorm", 
+  {
+    icon: Lightbulb,
+    title: "Brainstorm",
     skills: [
       {
         name: "Empathy",
-        description: "Understanding user needs and perspectives"
+        description: "Identifying user needs through active listening and observational research",
       },
       {
-        name: "UX Research",
-        description: "Gathering initial insights through interviews or observations"
+        name: "UX Research - Qualitative",
+        description: "Conducting user interviews and focus groups to uncover initial user insights and pain points",
       },
       {
         name: "Problem Solving",
-        description: "Framing the core problem creatively"
-      }, 
+        description: "Defining core problems using techniques like the 5 Whys and brainstorming workshops",
+      },
       {
         name: "Collaboration",
-        description: "Brainstorming with teams"
-      }, 
+        description: "Leading team brainstorming sessions to generate innovative and diverse ideas",
+      },
       {
         name: "Communication",
-        description: "Sharing ideas with stakeholders"
-      }, 
+        description: "Conveying ideas to stakeholders through compelling storytelling and visual aids",
+      },
       {
         name: "Competitor Analysis",
-        description: "Studying competitors to identify opportunities and gaps in the market"
-      }, 
+        description: "Analyzing competitor products to identify market gaps and innovation opportunities",
+      },
       {
         name: "Visual Communication",
-        description: "Sketching early concepts"
-      }, 
+        description: "Sketching concepts and creating storyboards to visualize early ideas",
+      },
       {
         name: "Design Thinking",
-        description: "Applying a user-centered approach to ideation"
-      }, 
-    ] 
+        description: "Facilitating empathy mapping and ideation workshops to develop user-centered solutions",
+      },
+    ],
+    tools: [
+      {
+        name: "Notion",
+        description: "Centralizing brainstorming notes and ideas for team collaboration",
+        img: notion,
+      },
+      {
+        name: "Canva",
+        description: "Designing mood boards and visual concepts to inspire ideation",
+        img: canva,
+      },
+      {
+        name: "MidJourney",
+        description: "Generating AI-driven visual concepts to spark creative ideas",
+        img: midjourney,
+      },
+      // {
+      //   name: "Miro",
+      //   description: "Collaborating on mind maps and brainstorming sessions",
+      //   img: miro, 
+      // },
+      // {
+      //   name: "MindMeister",
+      //   description: "Visually organizing ideas through mind mapping",
+      //   img: mindmeister, 
+      // },
+    ],
   },
-  { 
-    icon: Target, 
-    title: "Define", 
+  {
+    icon: Target,
+    title: "Define",
     skills: [
       {
-        name:"User Research",
-        description: "Deepening insights to define user requirements"
+        name: "User Research",
+        description: "Performing qualitative interviews and quantitative surveys to define user requirements",
       },
       {
-        name:"Empathy",
-        description: "Aligning solutions with user needs"
+        name: "Empathy",
+        description: "Developing empathy maps to align solutions with user emotions and needs",
       },
       {
-        name:"Create User Personas",
-        description: "Building detailed user profiles based on research"
+        name: "Create User Personas",
+        description: "Crafting detailed personas using demographic and behavioral insights",
       },
       {
-        name:"Create User Stories",
-        description: "Writing narratives to describe user interactions"
+        name: "Create User Stories",
+        description: "Writing user stories with clear acceptance criteria to guide development",
       },
       {
-        name:"Customer Experience Map / User Journey Map",
-        description: "Mapping the user’s journey to identify touchpoints"
+        name: "Customer Experience Map / User Journey Map",
+        description: "Designing user journey maps to pinpoint pain points and opportunities",
       },
       {
-        name:"Information Architecture",
-        description: "Structuring content and flows"
+        name: "Information Architecture",
+        description: "Organizing content with sitemaps and card sorting for improved usability",
       },
       {
-        name:"Flow Chart",
-        description: "Designing process or navigation flows for clarity"
+        name: "Flow Chart",
+        description: "Creating user flow charts to ensure intuitive navigation paths",
       },
       {
-        name:"Analytical Reasoning",
-        description: "Analyzing data to set objectives"
+        name: "Analytical Reasoning",
+        description: "Evaluating survey data and feedback to establish measurable project goals",
       },
       {
-        name:"Communication",
-        description: "Articulating scope to teams and stakeholders"
+        name: "Communication",
+        description: "Documenting project scope in briefs to ensure team alignment",
       },
       {
-        name:"Stakeholder Management",
-        description: "Aligning with business goals"
+        name: "Stakeholder Management",
+        description: "Leading workshops to align design goals with business objectives",
       },
       {
-        name:"Design Thinking",
-        description: "Refining the problem and solution"
+        name: "Design Thinking",
+        description: "Conducting workshops to refine problems and solutions with stakeholders",
       },
-    ] 
+    ],
+    tools: [
+      {
+        name: "Figma",
+        description: "Drafting early wireframes and flow charts to visualize user journeys",
+        img: figma,
+      },
+      {
+        name: "Notion",
+        description: "Structuring user personas, stories, and journey maps for clarity",
+        img: notion,
+      },
+      // {
+      //   name: "Miro",
+      //   description: "Mapping user journeys and flows collaboratively",
+      //   img: miro, 
+      // },
+      // {
+      //   name: "SurveyMonkey",
+      //   description: "Conducting surveys for quantitative user research",
+      //   img: surveymonkey, 
+      // },
+      // {
+      //   name: "Lookback",
+      //   description: "Recording and analyzing user interviews for insights",
+      //   img: lookback, 
+      // },
+    ]
   },
-  { 
-    icon: Palette, 
+  {
+    icon: Palette,
     title: "Design",
     skills: [
       {
         name: "Wireframing",
-        description: "Outlining the product structure"
+        description: "Outlining product structures using low-fidelity wireframes for early validation",
       },
       {
         name: "Prototyping",
-        description: "Building interactive design models"
+        description: "Building interactive prototypes to test user interactions and flows",
       },
       {
-        name: "Interaction Design / Motion Design",
-        description: "Crafting intuitive user interactions"
+        name: "Interaction Design",
+        description: "Designing intuitive interactions such as clicks, swipes, and navigation flows",
+      },
+      {
+        name: "Motion Design",
+        description: "Creating animations and transitions to enhance user engagement and feedback",
       },
       {
         name: "Visual Design",
-        description: "Creating appealing interfaces"
+        description: "Designing aesthetically appealing interfaces with consistent color and typography",
       },
       {
         name: "Mobile Design",
-        description: "Optimizing for mobile devices"
-      }, 
+        description: "Optimizing interfaces for seamless mobile experiences",
+      },
       {
         name: "User Interface Design",
-        description: "Designing functional UI elements"
-      }, 
+        description: "Crafting functional and visually appealing UI elements for user interaction",
+      },
       {
         name: "UX Writing",
-        description: "Writing user-friendly interface copy"
-      }, 
+        description: "Writing concise, user-friendly copy for interfaces and microinteractions",
+      },
       {
         name: "Collaboration",
-        description: "Working with developers and designers"
-      }, 
+        description: "Partnering with developers and designers to refine design solutions",
+      },
       {
         name: "Communication",
-        description: "Presenting designs to stakeholders"
-      }, 
+        description: "Presenting design concepts to stakeholders for feedback and approval",
+      },
       {
         name: "Accessibility",
-        description: "Ensuring inclusivity"
-      }, 
+        description: "Ensuring designs meet WCAG standards for inclusive user experiences",
+      },
       {
         name: "Data Visualization",
-        description: "Presenting data clearly"
-      }, 
+        description: "Designing user-friendly charts and graphs to present complex data",
+      },
       {
         name: "Responsive Design",
-        description: "Adapting to various screen sizes"
-      }, 
+        description: "Adapting designs to ensure consistency across various screen sizes",
+      },
       {
         name: "Design Systems",
-        description: "Creating reusable components & developing consistent design standards"
-      }, 
+        description: "Developing reusable components to maintain design consistency",
+      },
+      {
+        name: "Material Design System",
+        description: "Implementing Google’s Material Design principles for cohesive interfaces",
+      },
       {
         name: "Agile Methodologies",
-        description: "Iterating designs in a team setting"
-      }, 
+        description: "Iterating designs in agile sprints to meet evolving requirements",
+      },
     ],
     tools: [
       {
         name: "Photoshop",
-        description: "",
-        img: ""
+        description: "Editing and creating visual assets to enhance interface design",
+        img: photoshop,
       },
       {
         name: "Illustrator",
-        description: "",
-        img: ""
+        description: "Designing vector graphics for icons and illustrations",
+        img: illustrator,
       },
       {
         name: "Figma",
-        description: "",
-        img: ""
+        description: "Designing and collaborating on interfaces with real-time feedback",
+        img: figma,
       },
       {
         name: "Adobe XD",
-        description: "",
-        img: ""
+        description: "Prototyping user experiences for interactive testing",
+        img: adobexd,
       },
       {
         name: "After Effect",
-        description: "",
-        img: ""
+        description: "Creating motion graphics and animations to enrich UI elements",
+        img: aftereffect,
       },
       {
         name: "LottieFiles",
-        description: "",
-        img: ""
+        description: "Integrating lightweight animations to improve user engagement",
+        img: lottiefiles,
       },
       {
-        name: "Premier Pro",
-        description: "",
-        img: ""
+        name: "Motion",
+        description: "Building advanced motion effects for seamless UI transitions",
+        img: motion,
       },
-    ]
+      {
+        name: "Canva",
+        description: "Creating quick mockups and design assets for early iterations",
+        img: canva,
+      },
+    ],
   },
-  { 
-    icon: CircuitBoard, 
+  {
+    icon: CircuitBoard,
     title: "Test",
     skills: [
       {
         name: "Usability Testing",
-        description: "Assessing design effectiveness"
+        description: "Conducting user tests to evaluate design effectiveness and usability",
       },
       {
         name: "Analytical Reasoning",
-        description: "Interpreting test results"
+        description: "Analyzing usability test results to identify and prioritize improvements",
       },
       {
         name: "User Research",
-        description: "Gathering user feedback"
+        description: "Collecting qualitative feedback through user interviews and observations",
       },
       {
         name: "Communication",
-        description: "Reporting findings"
+        description: "Delivering actionable test findings and recommendations to the team",
       },
       {
         name: "Accessibility",
-        description: "Verifying inclusivity standards"
+        description: "Ensuring designs comply with WCAG standards for inclusivity",
       },
       {
         name: "Data Visualization",
-        description: "Presenting test data"
+        description: "Creating charts and reports using tools like Figma to present test insights",
       },
       {
         name: "Agile Methodologies",
-        description: "Iterating based on outcomes"
+        description: "Iterating designs based on test feedback within agile sprints",
       },
       {
         name: "Incremental A/B Testing",
-        description: "Comparing design variations to optimize performance"
+        description: "Running A/B tests to optimize design variations for user engagement",
       },
       {
         name: "Google Analytics",
-        description: "Analyzing user behavior and metrics"
-      },
-    ],
-  },
-  { 
-    icon: CodeXml, 
-    title: "Development",
-    skills: [
-      {
-        name: "HTML",
-        description: ""
-      },
-      {
-        name: "CSS, TailwindCSS",
-        description: ""
-      },
-      {
-        name: "React.js",
-        description: ""
-      },
-      {
-        name: "React Hook Form",
-        description: ""
-      },
-      {
-        name: "Vue.js",
-        description: ""
-      },
-      {
-        name: "TanStack Table",
-        description: ""
-      },
-      {
-        name: "TanStack Query",
-        description: ""
-      },
-      {
-        name: "REST APIs",
-        description: ""
-      },
-      {
-        name: "Postman API",
-        description: ""
-      },
-      {
-        name: "Bootstrap",
-        description: ""
-      },
-      {
-        name: "Git - Gitlab, Github",
-        description: ""
-      },
-      {
-        name: "ShadcnUI, MUI, DaisyUI",
-        description: ""
-      },
-      {
-        name: "AceternityUI, Motion",
-        description: ""
-      },
-      {
-        name: "Node.js",
-        description: ""
-      },
-      {
-        name: "PostgresSQL",
-        description: ""
+        description: "Analyzing user behavior metrics like bounce rate and time on page to validate designs",
       },
     ],
     tools: [
       {
-        name: "VSCode",
-        description: "",
-        img: ""
+        name: "Figma",
+        description: "Testing prototypes with users to gather feedback",
+        img: figma,
       },
       {
         name: "Postman",
-        description: "",
-        img: ""
+        description: "Validating API functionality during testing",
+        img: postman,
+      },
+      {
+        name: "Google Analytics",
+        description: "Monitoring user behavior metrics to assess design performance",
+        img: googleanalytics,
+      },
+      // {
+      //   name: "Hotjar",
+      //   description: "Analyzing user behavior with heatmaps and session recordings",
+      //   img: hotjar, 
+      // },
+      // {
+      //   name: "Maze",
+      //   description: "Conducting remote usability tests and gathering feedback",
+      //   img: maze,
+      // },
+      // {
+      //   name: "BrowserStack",
+      //   description: "Testing designs across different browsers and devices",
+      //   img: browserstack, 
+      // },
+    ],
+  },
+  {
+    icon: CodeXml,
+    title: "Development",
+    skills: [
+      {
+        name: "HTML",
+        description: "Structuring web content to ensure semantic and accessible markup",
+        img: html
+      },
+      {
+        name: "CSS",
+        description: "Styling interfaces for visual consistency and responsiveness",
+        img: css
+      },
+      {
+        name: "JavaScript",
+        description: "Implementing interactivity to enhance user experiences",
+        img: javascript
+      },
+      {
+        name: "TypeScript",
+        description: "Improving code quality and maintainability with type safety",
+        img: typescript
+      },
+      {
+        name: "REST APIs",
+        description: "Integrating backend services to enable dynamic functionality",
+        img: restapi
+      },
+      {
+        name: "Axios",
+        description: "Fetching data from APIs efficiently for seamless integration",
+        img: axios
+      },
+      {
+        name: "Git",
+        description: "Managing version control for collaborative development",
+        img: git
+      },
+      {
+        name: "TailwindCSS",
+        description: "Streamlining styling with utility-first CSS for rapid development",
+        img: tailwindcss
+      },
+      {
+        name: "React.js",
+        description: "Building dynamic, reusable UI components for scalable applications",
+        img: react
+      },
+      {
+        name: "React Hook Form",
+        description: "Simplifying form management in React projects",
+        img: reacthookform
+      },
+      {
+        name: "Zod",
+        description: "Ensuring form validation with type-safe schemas",
+        img: zod
+      },
+      {
+        name: "Vue.js",
+        description: "Developing flexible, component-based interfaces for diverse projects",
+        img: vue
+      },
+      {
+        name: "TanStack Table",
+        description: "Rendering responsive tables for efficient data presentation",
+        img: tanstack
+      },
+      {
+        name: "TanStack Query",
+        description: "Managing data fetching and state for optimized performance",
+        img: tanstack
+      },
+      {
+        name: "Node.js",
+        description: "Building server-side logic for robust application functionality",
+        img: node
+      },
+      {
+        name: "PostgreSQL",
+        description: "Managing relational databases for secure data storage",
+        img: postgresql
+      },
+      // {
+      //   name: "Collaboration",
+      //   description: "Coordinating with teams for deployment",
+      //   img: ""
+      // },
+      // {
+      //   name: "Communication",
+      //   description: "Updating stakeholders on development progress",
+      //   img: ""
+      // },
+    ],
+    tools: [
+      {
+        name: "VSCode",
+        description: "Editing and managing code efficiently",
+        img: vscode,
+      },
+      {
+        name: "Postman",
+        description: "Testing and debugging APIs during development",
+        img: postman,
       },
       {
         name: "Fork",
-        description: "",
-        img: ""
+        description: "Managing Git repositories for collaborative workflows",
+        img: fork,
       },
-    ]
-  }
+      {
+        name: "GitLab",
+        description: "Hosting repositories and managing version control",
+        img: gitlab
+      },
+      {
+        name: "GitHub",
+        description: "Collaborating on code and managing project workflows",
+        img: github
+      },
+      {
+        name: "ShadcnUI",
+        description: "Implementing modern UI components for consistent design",
+        img: shadcn
+      },
+      {
+        name: "MUI",
+        description: "Using Material-UI components for professional interfaces",
+        img: mui
+      },
+      {
+        name: "DaisyUI",
+        description: "Enhancing TailwindCSS with pre-built UI components",
+        img: daisyui
+      },
+      {
+        name: "AceternityUI",
+        description: "Adding advanced UI effects for engaging interfaces",
+        img: aceternityui
+      },
+      {
+        name: "Motion",
+        description: "Integrating motion effects to enhance interactivity",
+        img: motion
+      },
+      {
+        name: "Cursor",
+        description: "Leveraging AI-powered coding assistance for faster development",
+        img: cursor
+      },
+      {
+        name: "POE",
+        description: "Using AI to debug code and optimize solutions",
+        img: poe
+      },
+    ],
+  },
 ];
 
 export const Skill = () => {
@@ -393,7 +544,7 @@ export const Skill = () => {
         
         <Tabs defaultValue="Brainstorm" className="combo">
           <TabsList className="tab-list">
-            {steps.map((step) => (
+            {steps.map((step, index) => (
               <TabsTrigger 
                 key={step.title} 
                 value={step.title}
@@ -402,7 +553,7 @@ export const Skill = () => {
                 <div className="icon-container">
                   <step.icon className="icon" />
                 </div>
-                <span className="josefin">{step.title}</span>
+                <span className="josefin text-lg">0{index+1} - {step.title}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -412,45 +563,56 @@ export const Skill = () => {
               value={step.title}
               className="tabs-content"
             >
-              <div className="space-y-6">
-                {/* <h2 className="text-2xl font-bold josefin">
-                  {`Stage ${index+1}`} - {step.title}
-                </h2> */}
+              <h2 className="text-2xl font-bold josefin">
+                {`Stage ${index+1}`} - {step.title}
+              </h2>
 
-                {step.skills && (
-                  <div className="space-y-3">
-                    <div className="space-y-2">
-                      {step.skills.map((skill, index) => (
-                        <div 
-                          key={index} 
-                          className="pb-1"
-                        >
-                          <div>{skill.name}</div>
-                          <div>{skill.description}</div>
+              {step.skills && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold uppercase">Skills</h3>
+                  <div className="skill-col">
+                    {step.skills.map((skill, index) => (
+                      <div 
+                        key={index} 
+                        className="flex gap-4"
+                      >
+                        {'img' in skill && skill.img && (
+                          <div className="max-w-12"> 
+                            <img src={skill.img} alt={skill.name} className="w-full rounded-md"/>
+                          </div>
+                        )}
+                        <div>
+                          <div className="font-bold">{skill.name}</div>
+                          <div className="text-gray-400">{skill.description}</div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
-                )}
-                
-                {step.tools && (
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold">Tools</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {step.tools.map((tool, index) => (
-                        <div 
-                          key={index} 
-                          className="px-3 py-1 bg-white/20 rounded-full text-sm"
-                        >
-                          <div>{tool.name}</div>
-                          <div>{tool.description}</div>
+                </div>
+              )}
+              
+              {step.tools && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold uppercase">Tools</h3>
+                  <div className="skill-col">
+                    {step.tools.map((tool, index) => (
+                      <div 
+                        key={index} 
+                        className="flex gap-4"
+                      >
+                        <div className="max-w-12"> 
+                          <img src={tool.img} alt={tool.name} className="w-full rounded-md"/>
                         </div>
-                      ))}
-                    </div>
+                        <div>
+                          <div className="font-bold">{tool.name}</div>
+                          <div className="text-gray-400">{tool.description}</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
+              )}
                 
-              </div>
             </TabsContent>
           ))}
         </Tabs>
