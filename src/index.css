@@ -159,24 +159,30 @@ Button {
 }
 
 #skill .combo {
-@apply rounded-md overflow-hidden border border-spink bg-white divide-y divide-spink
+  @apply gap-0
 }
 
 #skill .tab-list {
-  @apply grid grid-cols-5 divide-x divide-spink w-full p-0 h-48 overflow-hidden rounded-none;
+  @apply grid grid-cols-5 gap-1 w-full p-0 h-48 bg-transparent -mb-[1px];
 }
 
 #skill .tabs-trigger {
-  @apply p-4 flex flex-col items-center justify-center gap-2 relative cursor-pointer rounded-none border-none;
+  @apply p-4 flex flex-col items-center justify-center gap-2 relative cursor-pointer rounded-t-xl rounded-b-none 
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-100
+  data-[state=active]:text-spink data-[state=active]:bg-white data-[state=active]:border-spink;
 }
-
 
 #skill .tabs-trigger span {
   @apply font-bold tracking-wide text-lg
 }
 
+#skill .tabs-content {
+  @apply p-6 bg-white rounded-b-lg
+}
+
 #skill .icon-container {
-  @apply size-20 bg-lpink/40 rounded-full flex justify-center items-center;
+  @apply size-20 bg-lpink/40 rounded-full flex justify-center items-center 
+  group-data-[state=active]:bg-spink group-data-[state=active]:text-white;
 }
 
 #skill .tab-list .icon {
