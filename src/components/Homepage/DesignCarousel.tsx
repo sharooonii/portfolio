@@ -94,18 +94,18 @@ const ImageLightbox: FC<ImageLightboxProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center" 
+      className="lightbox-container" 
       onClick={onClose}
     >
       <div 
-        className="relative max-w-4xl max-h-[90vh] w-full p-4" 
+        className="lightbox" 
         onClick={(e) => e.stopPropagation()}
       >
         {/* close button */}
         <Button 
           variant="ghost" 
           size="icon" 
-          className="absolute top-2 right-2 z-10 text-white hover:bg-black/20 rounded-full hover:text-white" 
+          className="close-button" 
           onClick={onClose}
         >
           <X className="size-6" />
@@ -115,15 +115,16 @@ const ImageLightbox: FC<ImageLightboxProps> = ({
           <img 
             src={currentImage.src} 
             alt={currentImage.alt} 
-            className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+            className="zoom-image"
           />
           <p className="text-center text-white mt-4 text-xl">{currentImage.description}</p>
         </div>
         
+        {/* arrow buttons */}
         <Button 
           variant="outline" 
           size="icon" 
-          className={`absolute top-1/2 left-4 transform -translate-y-1/2 rounded-full bg-white ${isFirstImage ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
+          className={`-bottom-8 md:top-1/2 left-4 arrow-button ${isFirstImage ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
           onClick={(e) => {
             e.stopPropagation();
             onPrev();
@@ -136,7 +137,7 @@ const ImageLightbox: FC<ImageLightboxProps> = ({
         <Button 
           variant="outline" 
           size="icon" 
-          className={`absolute top-1/2 right-4 transform -translate-y-1/2 rounded-full bg-white ${isLastImage ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
+          className={`-bottom-8 md:top-1/2 right-4 arrow-button ${isLastImage ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
           onClick={(e) => {
             e.stopPropagation();
             onNext();

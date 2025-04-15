@@ -233,3 +233,22 @@ Button {
   @apply text-spink hover:text-spink border-spink hover:bg-nude;
 }
 
+.lightbox-container {
+  @apply fixed inset-0 z-50 bg-black/80 flex items-center justify-center;
+}
+
+.lightbox {
+  @apply relative md:max-w-4xl max-h-[90vh] w-full p-4
+}
+
+.lightbox .close-button {
+  @apply absolute -top-8 right-4 z-10 text-white hover:bg-black/20 rounded-full hover:text-white
+}
+
+.lightbox .zoom-image {
+  @apply w-full h-auto max-h-[85vh] max-w-full object-contain;
+}
+
+.lightbox .arrow-button {
+  @apply absolute transform -translate-y-1/2 rounded-full bg-white;
+}
