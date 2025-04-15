@@ -172,7 +172,7 @@ Button {
 /* homepage */
 .home-title {
   font-family: "Josefin Sans", sans-serif !important;
-  @apply text-xl font-semibold uppercase text-spink;
+  @apply text-2xl font-semibold uppercase text-spink;
 }
 
 .home-skill-container {

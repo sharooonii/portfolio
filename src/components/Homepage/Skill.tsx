@@ -46,6 +46,15 @@ import restapi from "@/assets/tools/restapi.png"
 import postgresql from "@/assets/tools/postgresql.png"
 import poe from "@/assets/tools/poe.png"
 import cursor from "@/assets/tools/cursor.png"
+import redux from "@/assets/tools/redux.png"
+import express from "@/assets/tools/express.png"
+import hotjar from "@/assets/tools/hotjar.png"
+import miro from "@/assets/tools/miro.png"
+import mindmeister from "@/assets/tools/mindmeister.png"
+import surveymonkey from "@/assets/tools/surveymonkey.png"
+import lookback from "@/assets/tools/lookback.png"
+import maze from "@/assets/tools/maze.jpg"
+import browserstack from "@/assets/tools/browserstack.png"
 
 const steps = [
   {
@@ -359,11 +368,11 @@ const steps = [
         description: "Monitoring user behavior metrics to assess design performance",
         img: googleanalytics,
       },
-      // {
-      //   name: "Hotjar",
-      //   description: "Analyzing user behavior with heatmaps and session recordings",
-      //   img: hotjar, 
-      // },
+      {
+        name: "Hotjar",
+        description: "Analyzing user behavior with heatmaps and session recordings",
+        img: hotjar, 
+      },
       // {
       //   name: "Maze",
       //   description: "Conducting remote usability tests and gathering feedback",
@@ -426,6 +435,11 @@ const steps = [
         img: react
       },
       {
+        name: "Redux",
+        description: "Managing global application state to ensure scalability and consistency across components",
+        img: redux
+      },
+      {
         name: "React Hook Form",
         description: "Simplifying form management in React projects",
         img: reacthookform
@@ -449,6 +463,11 @@ const steps = [
         name: "TanStack Query",
         description: "Managing data fetching and state for optimized performance",
         img: tanstack
+      },
+      {
+        name: "Express.js",
+        description: "Building RESTful APIs and managing server-side routing for efficient backend functionality",
+        img: express
       },
       {
         name: "Node.js",

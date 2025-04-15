@@ -52,7 +52,7 @@ export const ProjectCarousel = () => {
   return (
     <div className="container mx-auto space-y-4">
       <h1 className="home-title">Selected Projects</h1>
-      <div className="grid grid-cols-2 2xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {projects.map((project, index) => (
           <ProjectCard 
             key={index}
