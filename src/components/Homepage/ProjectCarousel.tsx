@@ -1,11 +1,11 @@
 import { ProjectCard } from "./ProjectCard";
-import educare from "@/assets/educare-home.png"
-import unigel from "@/assets/unigel-home.png"
-import bnr from "@/assets/bnr-home.png"
-import asgh from "@/assets/asgh-home.png"
-import educareLogo from "@/assets/educare-company-logo.png"
-import unigelLogo from "@/assets/unigel-company-logo.png"
-import hktdc from "@/assets/hktdc.png"
+import educare from "@/assets/projects/educare-home.png"
+import unigel from "@/assets/projects/unigel-home.png"
+import bnr from "@/assets/projects/bnr-home.png"
+import asgh from "@/assets/projects/asgh-home.png"
+import educareLogo from "@/assets/projects/educare-company-logo.png"
+import unigelLogo from "@/assets/projects/unigel-company-logo.png"
+import hktdc from "@/assets/projects/hktdc.png"
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 

@@ -220,3 +220,16 @@ Button {
 #skill .skill-col {
   @apply space-y-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6;
 }
+
+#design-carousel .arrow-button {
+  @apply h-10 w-10 rounded-full
+}
+
+#design-carousel .arrow-disabled-state {
+  @apply text-gray-300 border-gray-300 cursor-not-allowed
+}
+
+#design-carousel .arrow-active-state {
+  @apply text-spink hover:text-spink border-spink hover:bg-nude;
+}
+
