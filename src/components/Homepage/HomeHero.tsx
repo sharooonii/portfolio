@@ -1,7 +1,7 @@
 export const HomeHero = () => {
   return (
     <>
-      <div className="container mx-auto py-20">
+      <div className="container mx-auto py-26">
         <h1 className="uppercase text-7xl font-extrabold text-spink josefin pb-2">
           <p>I can design 👩🏻‍🎨</p>
           <p>& Code 👩🏻‍💻</p>

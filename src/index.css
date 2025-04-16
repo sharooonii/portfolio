@@ -42,6 +42,7 @@
   --color-spink: var(--spink);
   --color-lpink: var(--lpink);
   --color-nude: var(--nude);
+  --color-sbrown: var(--sbrown);
 }
 
 :root {
@@ -80,6 +81,7 @@
   --spink: oklch(0.62 0.2303 2.48);
   --lpink: oklch(94.32% 0.028 358.02);
   --nude: oklch(97.11% 0.014 50.81);
+  --sbrown: oklch(54.92% 0.021 48.32);
 }
 
 .dark {
@@ -175,6 +177,10 @@ Button {
   @apply text-2xl font-semibold uppercase text-spink;
 }
 
+.custom-shadow:hover {
+  box-shadow: 1px 10px 31px -3px rgba(0,0,0,0.25);
+}
+
 .home-skill-container {
   background-image: url("./assets/cake-pattern.png");
   @apply bg-lpink;
@@ -251,4 +257,24 @@ Button {
 
 .lightbox .arrow-button {
   @apply absolute transform -translate-y-1/2 rounded-full bg-white;
+}
+
+#about-me .check-button {
+  @apply  h-10 uppercase bg-spink hover:bg-spink/90 text-white text-base font-normal
+}
+
+#about-me .see-button {
+  @apply  h-10 uppercase bg-transparent border-spink hover:bg-white/50 !text-spink rounded-md text-base font-normal;
+}
+
+#media-carousel .arrow-button {
+  @apply h-10 w-10 rounded-full
+}
+
+#media-carousel .arrow-disabled-state {
+  @apply text-gray-300 border-gray-300 cursor-not-allowed
+}
+
+#media-carousel .arrow-active-state {
+  @apply text-spink hover:text-spink border-spink hover:bg-nude;
 }

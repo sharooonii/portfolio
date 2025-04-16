@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Homepage } from "./pages/Homepage";
+import { SingleProject } from "@/components/Projects/SingleProject"
 
 function App() {
   return (
@@ -8,8 +9,7 @@ function App() {
       {/* Main application routes handled by Homepage */}
       <Route path="/*" element={<Homepage />} />
       
-      {/* Settings remains a separate top-level route */}
-      {/* <Route path="/settings" element={<Settings />} /> */}
+      <Route path="/educare" element={<SingleProject />} />
       
       {/* Other Pages */}
       {/* <Route path="*" element={<ErrorPage />} /> */}

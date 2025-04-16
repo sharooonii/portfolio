@@ -31,7 +31,7 @@ export const ProjectCard = ({
   
   return (
     <div onClick={handleClick} className="rounded-xl overflow-hidden shadow shadow-lg 
-    hover:shadow-xl cursor-pointer">
+    custom-shadow cursor-pointer">
       <div>
         <img src={src} alt={alt} className="w-full"/>
       </div>

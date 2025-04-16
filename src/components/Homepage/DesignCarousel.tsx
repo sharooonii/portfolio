@@ -6,7 +6,7 @@ import spiderman2 from "@/assets/design/spiderman-2.jpg"
 import haagendazs from "@/assets/design/haagendazs.jpg"
 import { Button } from "../ui/button"
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
-import { useEffect, useState, useRef, KeyboardEvent as ReactKeyboardEvent } from "react"
+import { useEffect, useState } from "react"
 import {
   Carousel,
   CarouselContent,
@@ -199,7 +199,7 @@ export const DesignCarousel: FC = () => {
 
   // Handle ESC key press for lightbox
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === 'Escape') {
         setLightboxOpen(false);
       } else if (e.key === 'ArrowRight' && lightboxOpen) {
@@ -250,7 +250,7 @@ export const DesignCarousel: FC = () => {
   };
 
   return (
-    <div id="design-carousel" className="container mx-auto space-y-4 my-24 px-4">
+    <div id="design-carousel" className="container mx-auto space-y-4 my-20 px-4">
       {isLargeScreen ? (
         // Grid view for xl screens and above
         <>
