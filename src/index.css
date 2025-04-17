@@ -123,7 +123,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-stone-600/90;
+    @apply bg-background text-stone-700/90;
   }
 }
 
@@ -171,10 +171,15 @@ Button {
   @apply hover:bg-transparent text-spink uppercase;
 }
 
+.top-title {
+  font-family: "Josefin Sans", sans-serif !important;
+  @apply tracking-wide uppercase text-7xl font-extrabold text-spink;
+}
+
 /* homepage */
 .home-title {
   font-family: "Josefin Sans", sans-serif !important;
-  @apply text-2xl font-semibold uppercase text-spink;
+  @apply tracking-wider text-2xl font-semibold uppercase text-spink;
 }
 
 .custom-shadow:hover {
@@ -277,4 +282,10 @@ Button {
 
 #media-carousel .arrow-active-state {
   @apply text-spink hover:text-spink border-spink hover:bg-nude;
+}
+
+/* projects */
+#page-project-card .project-card-title {
+  font-family: "Josefin Sans", sans-serif !important;
+  @apply font-extrabold text-xl/10 uppercase underline underline-offset-8;
 }

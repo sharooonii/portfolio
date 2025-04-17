@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Homepage } from "./pages/Homepage";
+import { Homepage } from "./pages/Home";
 import { SingleProject } from "@/components/Projects/SingleProject"
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Routes>
       {/* Main application routes handled by Homepage */}
       <Route path="/*" element={<Homepage />} />
-      
+
       <Route path="/educare" element={<SingleProject />} />
       
       {/* Other Pages */}

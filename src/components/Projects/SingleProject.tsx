@@ -1,9 +1,9 @@
-import { WorkHero } from "./WorkHero";
+// import { WorkHero } from "./WorkHero";
 
 export const SingleProject = () => {
   return (
     <div>
-      <WorkHero 
+      {/* <WorkHero 
         primaryColor="#8c52ff"
         secondaryColor="#4c0fbc"
         companyName="Union Faith Corp"
@@ -11,7 +11,7 @@ export const SingleProject = () => {
         illustrationSrc
         illustrationAlt="insurance illustration"
         posterSrc
-        posterAlt/>
+        posterAlt/> */}
     </div>
   );
 }
