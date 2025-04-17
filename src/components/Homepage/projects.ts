@@ -14,7 +14,7 @@ import deloitte from "@/assets/home-projects/deloitte-home.png"
 
 export const projects = [
   {
-    title: "Resource Allocation System",
+    title: "Resource Allocation",
     description: "Resource management system monitoring server performance metrics",
     src: deloitte,
     alt: "Deloitte",

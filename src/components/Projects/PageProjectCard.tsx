@@ -62,7 +62,7 @@ export const PageProjectCard = ({
           <div className="text-white/80">{year}</div>
         </div>
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             <h1 className="project-card-title">{title}</h1>
             {isLock && <LockKeyhole className="h-5 w-5" />}
           </div>
