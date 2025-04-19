@@ -183,7 +183,7 @@ Button {
 }
 
 .custom-shadow:hover {
-  box-shadow: 1px 10px 31px -3px rgba(0,0,0,0.25);
+  box-shadow: 1px 20px 20px -8px rgba(0,0,0,0.3);
 }
 
 .home-skill-container {

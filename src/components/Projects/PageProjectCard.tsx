@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { LockKeyhole } from "lucide-react";
+import { useState } from "react";
 
 interface ProjectCardProps {
   color: string;
+  hover_color: string;
   year: string;
   title: string;
   description: string;
   src: string;
+  color_src: string;
   alt: string;
-  companyLogo: string;
+  whiteCompanyLogo: string;
   companyAlt: string;
   url: string;
   isLock: boolean; 
@@ -16,18 +19,21 @@ interface ProjectCardProps {
 
 export const PageProjectCard = ({ 
   color,
+  hover_color,
   year,
   title, 
   description, 
   src, 
+  color_src,
   alt, 
-  companyLogo, 
+  whiteCompanyLogo,
   companyAlt,
   url,
   isLock=false 
 }: ProjectCardProps) => {
   
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
   
   const handleClick = () => {
     if (!isLock) {
@@ -38,9 +44,13 @@ export const PageProjectCard = ({
   return (
     <div 
       id="page-project-card"
-      onClick={handleClick} 
-      className={`group relative text-white flex flex-col rounded-xl overflow-hidden shadow shadow-lg custom-shadow ${!isLock ? "cursor-pointer" : ""}`}
-      style={{ backgroundColor: color }}
+      onClick={handleClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`group relative text-white flex flex-col rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 ${!isLock ? "cursor-pointer" : ""}`}
+      style={{ 
+        backgroundColor: isHovered ? hover_color : color 
+      }}
     >
       {/* Overlay that appears on hover when isLock is true */}
       {isLock && (
@@ -58,7 +68,11 @@ export const PageProjectCard = ({
       
       <div className="px-10 pt-10 flex-grow space-y-4">
         <div className="h-10 flex justify-between items-center">
-          <img src={companyLogo} alt={companyAlt} className="max-w-full h-full"/>
+          <img 
+            src={whiteCompanyLogo} 
+            alt={companyAlt} 
+            className="max-w-full h-full transition-all duration-300"
+          />
           <div className="text-white/80">{year}</div>
         </div>
         <div className="space-y-2">
@@ -71,7 +85,11 @@ export const PageProjectCard = ({
         </div>
       </div>
       <div>
-        <img src={src} alt={alt} className="w-full"/>
+        <img 
+          src={isHovered && color_src ? color_src : src} 
+          alt={alt} 
+          className="w-full transition-all duration-300"
+        />
       </div>
     </div>
   );

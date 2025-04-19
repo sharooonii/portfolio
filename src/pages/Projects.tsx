@@ -9,7 +9,7 @@ export const Projects = () => {
       <div className="text-sbrown flex justify-center w-full text-lg">
         <div className="px-20 xl:px-48 2xl:px-96">
           <div>
-            I’m a unicorn developer with expertise in 
+            I'm a unicorn developer with expertise in 
             <span className="font-bold ml-1">UI/UX Design</span> and 
             <span className="font-bold ml-1">Full-Stack Development</span>. 
           </div>
@@ -27,13 +27,15 @@ export const Projects = () => {
         <PageProjectCard
           key={index}
           color={project.color}
+          hover_color={project.hover_color}
           year={project.year}
           title={project.title}
           description={project.description}
           src={project.src}
+          color_src={project.color_src}
           alt={project.alt}
-          companyLogo= {project.whiteCompanyLogo}
-          companyAlt= {project.companyAlt}
+          whiteCompanyLogo={project.whiteCompanyLogo}
+          companyAlt={project.companyAlt}
           url={project.url}
           isLock={project.companyAlt === "Deloitte" && true}
         />

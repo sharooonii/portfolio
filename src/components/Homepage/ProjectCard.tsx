@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // If using React Router
 import { LockKeyhole } from "lucide-react";
 
 interface ProjectCardProps {
+  color: string;
+  hover_color: string;
   title: string;
   description: string;
+  color_src: string;
   src: string;
   alt: string;
   companyLogo: string;
@@ -12,10 +16,13 @@ interface ProjectCardProps {
   isLock: boolean;
 }
 
-export const ProjectCard = ({ 
+export const ProjectCard = ({
+  color,
+  hover_color, 
   title, 
   description, 
   src, 
+  color_src,
   alt, 
   companyLogo, 
   companyAlt,
@@ -23,6 +30,7 @@ export const ProjectCard = ({
   isLock=false
 }: ProjectCardProps) => {
   
+  const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate(); 
   
   const handleClick = () => {
@@ -34,7 +42,9 @@ export const ProjectCard = ({
   return (
     <div 
       onClick={handleClick} 
-      className={`group relative rounded-xl overflow-hidden shadow shadow-lg custom-shadow ${!isLock ? "cursor-pointer" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`group relative rounded-xl overflow-hidden shadow shadow-lg custom-shadow hover:-translate-y-1 transition-all duration-300 ${!isLock ? "cursor-pointer" : ""}`}
     >
       {/* Overlay that appears on hover when isLock is true */}
       {isLock && (
@@ -50,8 +60,8 @@ export const ProjectCard = ({
         </div>
       )}
       
-      <div>
-        <img src={src} alt={alt} className="w-full"/>
+      <div style={{ backgroundColor: isHovered ? hover_color : color }}>
+        <img src={isHovered && color_src ? color_src : src} alt={alt} className="w-full"/>
       </div>
       <div className="p-6 space-y-6">
         <div className="h-8 flex items-center justify-between">
