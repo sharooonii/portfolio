@@ -1,9 +1,5 @@
 import { FC } from 'react';
-import adidas from "@/assets/design/adidas.jpg"
-import nike from "@/assets/design/nike.jpg"
-import spiderman1 from "@/assets/design/spiderman-1.jpg"
-import spiderman2 from "@/assets/design/spiderman-2.jpg"
-import haagendazs from "@/assets/design/haagendazs.jpg"
+
 import { Button } from "../ui/button"
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -15,12 +11,8 @@ import {
   CarouselPrevious,
   type CarouselApi
 } from "@/components/ui/carousel"
-
-interface ImageItem {
-  src: string;
-  alt: string;
-  description: string;
-}
+import { images, ImageItem } from './images';
+import { useNavigate } from "react-router-dom";
 
 interface PosterItemProps extends ImageItem {
   onClick: () => void;
@@ -36,34 +28,6 @@ interface ImageLightboxProps {
   isLastImage: boolean;
 }
 
-const images: ImageItem[] = [
-  {
-    src: spiderman1,
-    alt: "Spiderman poster",
-    description: "Film Poster"
-  },
-  {
-    src: spiderman2,
-    alt: "Spiderman poster",
-    description: "Film Poster"
-  },
-  {
-    src: adidas,
-    alt: "adidas poster",
-    description: "Sneakers Poster"
-  },
-  {
-    src: nike,
-    alt: "nike poster",
-    description: "Sneakers Poster"
-  },
-  {
-    src: haagendazs,
-    alt: "haagendazs poster",
-    description: "Food Poster"
-  },
-]
-
 // Poster Item Component
 const PosterItem: FC<PosterItemProps> = ({ src, alt, description, onClick }) => (
   <div className="space-y-1 cursor-pointer" onClick={onClick}>
@@ -73,12 +37,30 @@ const PosterItem: FC<PosterItemProps> = ({ src, alt, description, onClick }) => 
 );
 
 // See More Button Component
-const SeeMoreButton: FC = () => (
-  <Button variant="ghost" className="see-more-button">
-    <span>See More Design</span>
-    <ArrowRight className="size-5"/>
-  </Button>
-);
+const SeeMoreButton: FC = () => {
+  const navigate = useNavigate();
+
+  const handleSeeMoreDesign = () => {
+    navigate("/projects");
+    // Use setTimeout to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const designSection = document.getElementById("design");
+      if (designSection) {
+        // Scroll to show the top of the element with a small offset
+        const yOffset = -80; // Adjust this value as needed for your header height
+        const y = designSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "auto" });
+      }
+    }, 100);
+  }
+
+  return (
+    <Button variant="ghost" className="see-more-button" onClick={handleSeeMoreDesign}>
+      <span>See More Design</span>
+      <ArrowRight className="size-5"/>
+    </Button>
+  );
+};
 
 // Lightbox Component
 const ImageLightbox: FC<ImageLightboxProps> = ({ 
@@ -256,7 +238,7 @@ export const DesignCarousel: FC = () => {
         <>
           <h1 className="home-title">My Graphic Design</h1>
           <div className="grid grid-cols-6 gap-3">
-            {images.map((img, index) => (
+            {images.slice(0, 5).map((img, index) => (
               <div key={index}>
                 <PosterItem 
                   {...img} 
