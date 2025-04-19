@@ -1,6 +1,6 @@
 import { projects } from "@/components/Homepage/projects";
 import { PageProjectCard } from "@/components/Projects/PageProjectCard";
-import { images, ImageItem } from "@/components/Homepage/images";
+import { images } from "@/components/Homepage/images";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
