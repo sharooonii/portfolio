@@ -8,7 +8,7 @@ export const HomeHero = () => {
         </h1>
         <div className="text-xl pt-2">
           <div>Hello, I am Sharon Wong.</div>
-          <div>UI UX Designer | Full-Stack Developer | Based in Hong Kong</div>
+          <div>UI UX Designer | Frontend Developer | Based in Hong Kong</div>
         </div>
       </div>
     </>

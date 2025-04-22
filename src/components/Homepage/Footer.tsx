@@ -35,11 +35,11 @@ export const Footer = () => {
       id="footer"
       className="bg-nude py-18"
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-4 lg:gap-2 justify-between items-center">
         <h1 className="uppercase text-sbrown text-base tracking-widest">
           ✦ Thanks for visiting my website! 🥰 ✦
         </h1>
-        <div className="flex items-center gap-2 cursor-pointer group" onClick={navigateToLinkedin}>
+        <div className="flex items-center gap-2 cursor-pointer group mt-2 lg:mt-0" onClick={navigateToLinkedin}>
           <div className="size-8 rounded-lg bg-sbrown text-white flex justify-center items-center">
             <Linkedin className="size-5"/>
           </div>

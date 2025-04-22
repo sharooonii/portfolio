@@ -62,7 +62,7 @@ export const Projects = () => {
           <div>
             I'm a unicorn developer with expertise in 
             <span className="font-bold ml-1">UI/UX Design</span> and 
-            <span className="font-bold ml-1">Full-Stack Development</span>. 
+            <span className="font-bold ml-1">Frontend Development</span>. 
           </div>
           <div>
             With a passion for exceptional user experiences, I create 

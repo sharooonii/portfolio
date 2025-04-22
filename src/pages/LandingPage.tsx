@@ -3,7 +3,7 @@ import { DesignCarousel } from "@/components/Homepage/DesignCarousel";
 import { HomeHero } from "@/components/Homepage/HomeHero";
 import { MediaCarousel } from "@/components/Homepage/MediaCarousel";
 import { ProjectCarousel } from "@/components/Homepage/ProjectCarousel";
-import { Skill } from "@/components/Homepage/Skill";
+import { Skill } from "@/components/Homepage/SkillHome";
 
 export const LandingPage = () => {
   return (

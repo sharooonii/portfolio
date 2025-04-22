@@ -3,6 +3,7 @@ import { Footer } from "@/components/Homepage/Footer";
 import { Header } from "@/components/Homepage/Header";
 import { LandingPage } from "./LandingPage";
 import { Projects } from "./Projects";
+import { AboutMe } from "./AboutMe";
 
 export const Homepage = () => {
   return (
@@ -17,6 +18,10 @@ export const Homepage = () => {
           <Route 
             path="/projects" 
             element={<Projects />} 
+          />
+          <Route 
+            path="/about-me" 
+            element={<AboutMe />} 
           />
         </Routes>
       </div>

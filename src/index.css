@@ -123,7 +123,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-stone-700/90;
+    @apply bg-background text-stone-700/80 tracking-wide;
   }
 }
 
@@ -168,12 +168,16 @@ Button {
 
 /* header */
 .header-button {
-  @apply hover:bg-transparent text-spink uppercase;
+  @apply hover:bg-transparent text-spink uppercase hover:underline underline-offset-8;
 }
 
 .top-title {
   font-family: "Josefin Sans", sans-serif !important;
   @apply tracking-wide uppercase text-7xl font-extrabold text-spink;
+}
+
+.lucide.lucide-x {
+  @apply text-spink size-5
 }
 
 /* homepage */
@@ -191,44 +195,56 @@ Button {
   @apply bg-lpink;
 }
 
-#skill .title {
+.skill-part .title {
   @apply p-4 border-b border-spink/50 font-bold text-spink tracking-wide;
 }
 
-#skill .combo {
-  @apply gap-0 rounded-t-xl overflow-hidden
+.skill-part .combo {
+  @apply gap-0 rounded-xl overflow-hidden border
 }
 
-#skill .tab-list {
+.skill-part .tab-list {
   @apply grid grid-flow-col grid-rows-5 gap-0 grid-cols-1 h-fit
   lg:grid-flow-row lg:grid-cols-5 lg:gap-2 lg:grid-rows-1 lg:h-56
   w-full p-0 bg-transparent -mb-[1px];
 }
 
-#skill .tabs-trigger {
-  @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
-  data-[state=active]:text-spink data-[state=active]:bg-white data-[state=active]:border-spink;
+#about-me-page .skill-part .tab-list {
+  @apply grid grid-flow-col grid-rows-5 gap-0 grid-cols-1 h-fit
+  lg:grid-flow-row lg:grid-cols-5 lg:grid-rows-1 lg:h-56
+  w-full p-0 bg-transparent -mb-[1px];
 }
 
-#skill .tabs-trigger span {
+.skill-part .tabs-trigger {
+  @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
+  data-[state=active]:text-spink data-[state=active]:bg-white;
+}
+
+#about-me-page .tabs-trigger {
+  @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer rounded-none
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
+  data-[state=active]:text-spink data-[state=active]:bg-white;
+}
+
+.skill-part .tabs-trigger span {
   @apply font-bold tracking-wide text-xl
 }
 
-#skill .tabs-content {
+.skill-part .tabs-content {
   @apply p-12 bg-white rounded-b-lg space-y-10
 }
 
-#skill .icon-container {
+.skill-part .icon-container {
   @apply size-8 lg:size-20 bg-lpink/40 rounded-full flex justify-center items-center 
   group-data-[state=active]:bg-spink group-data-[state=active]:text-white;
 }
 
-#skill .tab-list .icon {
+.skill-part .tab-list .icon {
   @apply size-5 lg:size-10;
 }
 
-#skill .skill-col {
+.skill-part .skill-col {
   @apply space-y-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6;
 }
 
@@ -288,4 +304,30 @@ Button {
 #page-project-card .project-card-title {
   font-family: "Josefin Sans", sans-serif !important;
   @apply font-extrabold text-xl/10 uppercase underline underline-offset-8;
+}
+
+/* about me page */
+#about-me-page .section-title {
+  @apply text-2xl font-bold uppercase;
+}
+
+.work-sub-title {
+  font-family: "Josefin Sans", sans-serif !important;
+  @apply text-lg font-bold text-spink;
+}
+
+.company-info {
+  @apply text-base mb-1;
+}
+
+.company {
+  @apply font-medium;
+}
+
+.time-info {
+  @apply  text-sm text-stone-700/60;
+}
+
+.skills {
+  @apply mt-2 text-sm
 }

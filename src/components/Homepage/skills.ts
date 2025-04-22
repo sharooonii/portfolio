@@ -1,12 +1,4 @@
 import { Lightbulb, Target, Palette, CircuitBoard, Rocket, CodeXml } from "lucide-react";
-import { Switch } from "../ui/switch";
-import { useState } from "react";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
 
 import adobexd from "@/assets/tools/adobexd.png"
 import aftereffect from "@/assets/tools/aftereffect.png"
@@ -56,7 +48,7 @@ import lookback from "@/assets/tools/lookback.png"
 import maze from "@/assets/tools/maze.jpg"
 import browserstack from "@/assets/tools/browserstack.png"
 
-const steps = [
+export const skills = [
   {
     icon: Lightbulb,
     title: "Brainstorm",
@@ -554,88 +546,3 @@ const steps = [
     ],
   },
 ];
-
-export const Skill = () => {
-  return (
-    <div id="skill" className="home-skill-container mt-20">
-      <div className="container mx-auto space-y-4 py-30">
-        <h1 className="home-title">My Skills In Product Lifecycle</h1>
-        
-        <Tabs defaultValue="Brainstorm" className="combo">
-          <TabsList className="tab-list">
-            {steps.map((step, index) => (
-              <TabsTrigger 
-                key={step.title} 
-                value={step.title}
-                className="tabs-trigger group"
-              >
-                <div className="icon-container">
-                  <step.icon className="icon" />
-                </div>
-                <span className="josefin text-lg">0{index+1} - {step.title}</span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {steps.map((step, index) => (
-            <TabsContent 
-              key={step.title} 
-              value={step.title}
-              className="tabs-content"
-            >
-              <h2 className="text-2xl font-bold josefin">
-                {`Stage ${index+1}`} - {step.title}
-              </h2>
-
-              {step.skills && (
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold uppercase">Skills</h3>
-                  <div className="skill-col">
-                    {step.skills.map((skill, index) => (
-                      <div 
-                        key={index} 
-                        className="flex gap-4"
-                      >
-                        {'img' in skill && skill.img && (
-                          <div className="max-w-12"> 
-                            <img src={skill.img} alt={skill.name} className="w-full rounded-md"/>
-                          </div>
-                        )}
-                        <div>
-                          <div className="font-bold">{skill.name}</div>
-                          <div className="text-gray-400">{skill.description}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {step.tools && (
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold uppercase">Tools</h3>
-                  <div className="skill-col">
-                    {step.tools.map((tool, index) => (
-                      <div 
-                        key={index} 
-                        className="flex gap-4"
-                      >
-                        <div className="max-w-12"> 
-                          <img src={tool.img} alt={tool.name} className="w-full rounded-md"/>
-                        </div>
-                        <div>
-                          <div className="font-bold">{tool.name}</div>
-                          <div className="text-gray-400">{tool.description}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-                
-            </TabsContent>
-          ))}
-        </Tabs>
-      </div>
-    </div>
-  );
-};
