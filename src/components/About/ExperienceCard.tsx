@@ -52,7 +52,7 @@ const ExperienceCard: React.FC<{ experience: ExperienceData }> = ({ experience }
           <div className="font-semibold mb-1">✦ Key Projects</div>
           <ul className="list-disc pl-5">
             {keyProjects.map((project, index) => (
-              <li key={index} className="text-sm">{project}</li>
+              <li key={index}>{project}</li>
             ))}
           </ul>
         </div>
@@ -63,7 +63,7 @@ const ExperienceCard: React.FC<{ experience: ExperienceData }> = ({ experience }
           <div className="font-semibold mb-1">✦ Job Duties</div>
           <ul className="list-disc pl-5">
             {duties.map((duty) => (
-              <li key={duty.id} className="text-sm mb-1">{duty.description}</li>
+              <li key={duty.id} className="mb-1">{duty.description}</li>
             ))}
           </ul>
         </div>
@@ -71,7 +71,7 @@ const ExperienceCard: React.FC<{ experience: ExperienceData }> = ({ experience }
       
       {skills && skills.length > 0 && (
         <div className="skills">
-          <span className="font-semibold">Skills: </span>
+          <span className="font-semibold mr-2">Skills :</span>
           {skills.map((skill, index) => (
             <span key={skill.id} className="skill">
               {skill.name}{index < skills.length - 1 ? ' · ' : ''}

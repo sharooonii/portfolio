@@ -131,6 +131,10 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.container {
+  @apply px-10
+}
+
 .josefin {
   font-family: "Josefin Sans", sans-serif !important;
   @apply tracking-wide
@@ -201,6 +205,10 @@ Button {
 
 .skill-part .combo {
   @apply gap-0 rounded-xl overflow-hidden border
+}
+
+#about-me-page .skill-part .combo {
+  @apply gap-0 rounded-xl overflow-hidden border 
 }
 
 .skill-part .tab-list {
@@ -311,9 +319,13 @@ Button {
   @apply text-2xl font-bold uppercase;
 }
 
+#about-me-page .about-section {
+  @apply border rounded-lg ;
+}
+
 .work-sub-title {
   font-family: "Josefin Sans", sans-serif !important;
-  @apply text-lg font-bold text-spink;
+  @apply text-xl font-bold text-spink;
 }
 
 .company-info {
@@ -325,9 +337,9 @@ Button {
 }
 
 .time-info {
-  @apply  text-sm text-stone-700/60;
+  @apply text-gray-400;
 }
 
 .skills {
-  @apply mt-2 text-sm
+  @apply mt-2
 }

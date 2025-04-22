@@ -34,6 +34,11 @@ export const AboutMe = () => {
   
   const stickyNavRef = useRef<HTMLDivElement>(null);
   
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   // State to track section status and progress
   const [activeSection, setActiveSection] = useState<SectionName | null>(null);
   const [sectionStatus, setSectionStatus] = useState<Record<SectionName, SectionStatus>>(
@@ -145,28 +150,35 @@ export const AboutMe = () => {
           <div className="*:space-y-8 space-y-16">
             {Object.entries(sectionRefs).map(([name, refs]) => (
               <div key={name} ref={refs.section}>
-                <h2 ref={refs.title} className="section-title josefin">
+                <h2 ref={refs.title} className="section-title josefin mb-6">
                   ✦ {name === 'experience' ? 'Work Experience' :
                      name === 'licenses' ? 'Licenses & Certifications' :
                      name.charAt(0).toUpperCase() + name.slice(1)}
                 </h2>
                 {name === 'languages' && (
-                  <div className="grid grid-cols-3 xl:grid-cols-5">
+                  <div className="grid grid-cols-3 xl:grid-cols-5 about-section p-10">
                     {languageData.map((language) => (
                       <LanguageCard key={language.id} language={language} />
                     ))}
                   </div>
                 )}
-                {name === 'experience' && experienceData.map((experience) => (
-                  <div>
-                    <ExperienceCard key={experience.id} experience={experience} />
+                
+                {name === 'experience' && (
+                  <div className="about-section *:p-10 divide-y">
+                    {experienceData.map((experience) => (
+                      <ExperienceCard key={experience.id} experience={experience} />
+                    ))}
                   </div>
-                ))}
-                {name === 'licenses' && licenseData.map((license) => (
-                  <div>
+                )}
+                
+                {name === 'licenses' && (
+                <div className="about-section *:p-10 divide-y">
+                    {licenseData.map((license) => (
                     <LicenseCard key={license.id} license={license} />
+                  ))}
                   </div>
-                ))}
+                )}
+
                 {name === 'skills' && (
                   <div className="skill-part">
                     <SkillTabs />
