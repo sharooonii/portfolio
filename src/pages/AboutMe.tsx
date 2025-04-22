@@ -156,7 +156,7 @@ export const AboutMe = () => {
                      name.charAt(0).toUpperCase() + name.slice(1)}
                 </h2>
                 {name === 'languages' && (
-                  <div className="grid grid-cols-3 xl:grid-cols-5 about-section p-10">
+                  <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 about-section p-10">
                     {languageData.map((language) => (
                       <LanguageCard key={language.id} language={language} />
                     ))}
