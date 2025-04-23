@@ -6,11 +6,14 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 
-export const Header = () => {
+interface HeaderProps {
+  showTopReminder?: boolean;
+}
+
+export const Header = ({ showTopReminder = true }: HeaderProps) => {
   const navigate = useNavigate();
 
   // Navigation to home page
@@ -40,11 +43,13 @@ export const Header = () => {
 
   return (
     <>
-      <div className="bg-spink py-2 text-white">
-        <p className="container mx-auto text-center josefin uppercase">
-          ✦✦✦ <span className="hidden md:inline">welcome to contact me at</span> sharonaa0011@gmail.com ✦✦✦
-        </p>
-      </div>
+      {showTopReminder && (
+        <div className="bg-spink py-2 text-white">
+          <p className="container mx-auto text-center josefin uppercase">
+            ✦✦✦ <span className="hidden md:inline">welcome to contact me at</span> sharonaa0011@gmail.com ✦✦✦
+          </p>
+        </div>
+      )}
       <div
         id="header"
         className="container mx-auto py-8 flex justify-between items-center px-8 md:px-0"

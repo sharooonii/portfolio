@@ -4,6 +4,7 @@ import { Header } from "@/components/Homepage/Header";
 import { LandingPage } from "./LandingPage";
 import { Projects } from "./Projects";
 import { AboutMe } from "./AboutMe";
+import { Contact } from "./Contact";
 
 export const Homepage = () => {
   return (
@@ -23,6 +24,7 @@ export const Homepage = () => {
             path="/about-me" 
             element={<AboutMe />} 
           />
+          <Route path="/contact" element={<Contact />}/>
         </Routes>
       </div>
       <Footer />

@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import contactImage from "@/assets/contact-image.jpg"
+import { LinkedIn } from "@/components/Homepage/LinkedIn"
 
 const FormSchema = z.object({
   username: z.string().optional(),
@@ -27,6 +28,7 @@ const FormSchema = z.object({
 })
 
 export const Contact = () => {
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -53,13 +55,20 @@ export const Contact = () => {
   return (
     <div id="contact-page" className="contact-container">
       <div className="contact-inner-container">
-        <div className="bg-white w-full hidden md:block">
-          <img src={contactImage} alt="Sharon Wong" className="mx-auto max-w-[500px]"/>
+        <div className="bg-white h-full w-full hidden xl:flex flex-col justify-center p-16 space-y-6">
+          <img src={contactImage} alt="Sharon Wong" className="mx-auto max-w-[400px] xl:max-w-[500px]"/>
+          <LinkedIn />
         </div>
-        <div className="bg-lpink">
-          <h1 className="contact-title">Contact Me</h1>
+        <div className="h-full flex flex-col justify-center gap-10 px-10 py-16 xl:p-16">
+          <div className="space-y-8">
+            <div className="block xl:hidden space-y-6">
+              <img src={contactImage} alt="Sharon Wong" className="mx-auto max-w-36"/>
+              <LinkedIn />
+            </div>
+            <h1 className="contact-title">Contact Me</h1>
+          </div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 pt-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
                 name="username"
@@ -107,6 +116,8 @@ export const Contact = () => {
               />
               <div className="pt-4">
                 <Button type="submit" className="submit-button">Submit</Button>
+              </div>
+              <div className="flex justify-between items-center">
               </div>
             </form>
           </Form>
