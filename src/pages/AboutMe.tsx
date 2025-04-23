@@ -6,10 +6,12 @@ import LicenseCard from "@/components/About/LicenseCard";
 import { licenseData } from "@/components/About/licenses";
 import LanguageCard from "@/components/About/LanguageCard";
 import { languageData } from "@/components/About/languages";
+import EducationCard from "@/components/About/EducationCard";
+import { educationData } from "@/components/About/educations";
 import { SkillTabs } from "@/components/Homepage/SkillTabs";
 
 type SectionStatus = 'passed' | 'active' | 'upcoming';
-type SectionName = 'languages' | 'experience' | 'licenses' | 'skills';
+type SectionName = 'languages' | 'experience' | 'education' | 'licenses' | 'skills';
 
 export const AboutMe = () => {
   // References to section divs and titles
@@ -19,6 +21,10 @@ export const AboutMe = () => {
       title: useRef<HTMLHeadingElement>(null)
     },
     experience: {
+      section: useRef<HTMLDivElement>(null),
+      title: useRef<HTMLHeadingElement>(null)
+    },
+    education: {
       section: useRef<HTMLDivElement>(null),
       title: useRef<HTMLHeadingElement>(null)
     },
@@ -113,7 +119,7 @@ export const AboutMe = () => {
     const progress = sectionProgress[section];
     
     return {
-      className: `py-2 text-sm ${
+      className: `py-2 text-xs lg:text-sm ${
         status === 'passed' ? 'text-black/60' : 'text-black/50'
       }`,
       style: {
@@ -127,12 +133,12 @@ export const AboutMe = () => {
 
   return (
     <div id="about-me-page" className="container mx-auto">
-      <h1 className="top-title py-26 text-center">About Me</h1>
+      <h1 className="top-title py-12 md:py-26 text-center">About Me</h1>
       <div className="space-y-16 pb-26">
         <AboutHero />
         <div className="space-y-16 relative">
           <div ref={stickyNavRef} className="sticky top-0 z-100 bg-white py-3">
-            <div className="grid grid-cols-4 items-center text-center uppercase border border-spink divide-x divide-spink rounded-sm overflow-hidden">
+            <div className="grid grid-cols-5 items-center text-center uppercase border border-spink divide-x divide-spink rounded-sm overflow-hidden">
               {Object.keys(sectionRefs).map((section, index) => (
                 <div 
                   key={section} 
@@ -142,8 +148,8 @@ export const AboutMe = () => {
                     {section === 'licenses' ? 'Licenses & Certs' : 
                      section === 'experience' ? 'Work Experience' :
                      section.charAt(0).toUpperCase() + section.slice(1)}
-                  </div>
-                </div>
+              </div>
+            </div>
               ))}
             </div>
           </div>
@@ -156,32 +162,40 @@ export const AboutMe = () => {
                      name.charAt(0).toUpperCase() + name.slice(1)}
                 </h2>
                 {name === 'languages' && (
-                  <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 about-section p-10">
-                    {languageData.map((language) => (
-                      <LanguageCard key={language.id} language={language} />
-                    ))}
-                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 about-section p-5 md:p-10">
+                  {languageData.map((language) => (
+                    <LanguageCard key={language.id} language={language} />
+                  ))}
+                </div>
                 )}
                 
                 {name === 'experience' && (
-                  <div className="about-section *:p-10 divide-y">
-                    {experienceData.map((experience) => (
-                      <ExperienceCard key={experience.id} experience={experience} />
-                    ))}
-                  </div>
+                  <div className="about-section *:p-5 *:md:p-10 divide-y">
+                  {experienceData.map((experience) => (
+                    <ExperienceCard key={experience.id} experience={experience} />
+                  ))}
+                </div>
+                )}
+                
+                {name === 'education' && (
+                  <div className="about-section *:p-5 *:md:p-10 divide-y">
+                  {educationData.map((education) => (
+                    <EducationCard key={education.id} education={education} />
+                  ))}
+                </div>
                 )}
                 
                 {name === 'licenses' && (
-                <div className="about-section *:p-10 divide-y">
-                    {licenseData.map((license) => (
+                <div className="about-section *:p-5 *:md:p-10 divide-y">
+                  {licenseData.map((license) => (
                     <LicenseCard key={license.id} license={license} />
                   ))}
-                  </div>
+                </div>
                 )}
 
                 {name === 'skills' && (
                   <div className="skill-part">
-                    <SkillTabs />
+                <SkillTabs />
                   </div>
                 )}
               </div>

@@ -177,7 +177,7 @@ Button {
 
 .top-title {
   font-family: "Josefin Sans", sans-serif !important;
-  @apply tracking-wide uppercase text-7xl font-extrabold text-spink;
+  @apply tracking-wide uppercase text-5xl sm:text-7xl font-extrabold text-spink;
 }
 
 .lucide.lucide-x {
@@ -225,7 +225,7 @@ Button {
 
 .skill-part .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
+  border-none text-stone-600/90 shadow-none bg-zinc-50
   data-[state=active]:text-spink data-[state=active]:bg-white;
 }
 
@@ -240,11 +240,12 @@ Button {
 }
 
 .skill-part .tabs-content {
-  @apply p-12 bg-white rounded-b-lg space-y-10
+  @apply p-8 md:p-12 bg-white rounded-b-lg space-y-8 md:space-y-10
 }
 
 .skill-part .icon-container {
-  @apply size-8 lg:size-20 bg-lpink/40 rounded-full flex justify-center items-center 
+  @apply size-8 lg:size-20 bg-lpink/40 rounded-full flex justify-center items-center
+  group-hover:animate-bounce
   group-data-[state=active]:bg-spink group-data-[state=active]:text-white;
 }
 

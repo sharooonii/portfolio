@@ -58,7 +58,7 @@ export const Projects = () => {
     <div className="container mx-auto py-26 space-y-6">
       <h1 className="top-title text-center">Projects</h1>
       <div className="text-sbrown flex justify-center w-full text-lg">
-        <div className="px-20 xl:px-48 2xl:px-96">
+        <div className="px-5 md:px-20 xl:px-48 2xl:px-96">
           <div>
             I'm a unicorn developer with expertise in 
             <span className="font-bold ml-1">UI/UX Design</span> and 
@@ -95,7 +95,7 @@ export const Projects = () => {
     <div id="design" className="container mx-auto py-26 space-y-6">
       <h1 className="top-title text-center">Design</h1>
       <div className="text-sbrown flex justify-center w-full text-lg">
-        <div className="px-20 xl:px-48 2xl:px-96">
+        <div className="px-5 md:px-20 xl:px-48 2xl:px-96">
           With strong <span className="font-bold ml-1">graphic design</span> skills, I create compelling visual identities, 
           impactful marketing materials, and cohesive brand assets that effectively 
           communicate your message and engage your audience.

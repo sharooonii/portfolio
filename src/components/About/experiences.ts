@@ -1,4 +1,11 @@
 // experiences.ts
+import deloitte from "@/assets/deloitte-logo.jpg"
+import unionfaith from "@/assets/home-projects/educare-company-white-logo.png"
+import hktdc from "@/assets/hktdc-logo.png"
+import unigel from "@/assets/home-projects/unigel-company-logo.png"
+import oriental from "@/assets/oriental.jpg"
+
+
 export interface Duty {
   id: string;
   description: string;
@@ -13,6 +20,7 @@ export interface ExperienceData {
   id: string;
   position: string;
   company: string;
+  logo: string;
   employmentType: string;
   startTime: string;
   endTime: string;
@@ -29,6 +37,7 @@ export const experienceData: ExperienceData[] = [
     id: "deloitte",
     position: "UI UX Designer & Frontend Developer",
     company: "Deloitte AI Institute",
+    logo: deloitte,
     employmentType: "Full-time",
     startTime: "Nov 2024",
     endTime: "Present",
@@ -84,6 +93,7 @@ export const experienceData: ExperienceData[] = [
     id: "union-faith",
     position: "UI UX Designer & Frontend Developer",
     company: "Union Faith Corp",
+    logo: unionfaith,
     employmentType: "Full-time",
     startTime: "Aug 2023",
     endTime: "Nov 2024",
@@ -143,7 +153,8 @@ export const experienceData: ExperienceData[] = [
   {
     id: "ecommerce",
     position: "eCommerce Web Designer",
-    company: "Confidential",
+    company: "Unigel",
+    logo: unigel,
     employmentType: "Contract",
     startTime: "Apr 2023",
     endTime: "Jun 2023",
@@ -193,6 +204,7 @@ export const experienceData: ExperienceData[] = [
     id: "hktdc",
     position: "Web Designer",
     company: "Hong Kong Trade Development Council",
+    logo: hktdc,
     employmentType: "Full-time",
     startTime: "Mar 2022",
     endTime: "Apr 2023",
@@ -241,6 +253,7 @@ export const experienceData: ExperienceData[] = [
     id: "journalist",
     position: "Journalist (World News)",
     company: "Oriental Press Group",
+    logo: oriental,
     employmentType: "Full-time",
     startTime: "Jul 2020",
     endTime: "Oct 2021",
