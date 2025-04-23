@@ -153,6 +153,7 @@ export const AboutMe = () => {
                 <h2 ref={refs.title} className="section-title josefin mb-6">
                   ✦ {name === 'experience' ? 'Work Experience' :
                      name === 'licenses' ? 'Licenses & Certifications' :
+                     name === 'skills' ? 'Skills - In Product Lifecycle' :
                      name.charAt(0).toUpperCase() + name.slice(1)}
                 </h2>
                 {name === 'languages' && (

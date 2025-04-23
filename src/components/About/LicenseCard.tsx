@@ -7,29 +7,36 @@ const LicenseCard: React.FC<{ license: LicenseData }> = ({ license }) => {
     title,
     organization,
     issueDate,
-    skills
+    skills,
+    logo
   } = license;
 
   return (
-    <div className="license-card">
-      <div className="work-sub-title">{title}</div>
-      <div className="organization text-base mb-1 font-medium">
-        {organization}
-      </div>
-      <div className="time-info mb-2">
-        Issued {issueDate}
+    <div className="licenses-card flex gap-4">
+      <div className="education-logo-container max-w-14">
+        <img src={logo} alt={organization} className="licenses-logo w-full" />
       </div>
       
-      {skills && skills.length > 0 && (
-        <div className="skills">
-          <span className="font-semibold">Skills: </span>
-          {skills.map((skill, index) => (
-            <span key={skill.id} className="skill">
-              {skill.name}{index < skills.length - 1 ? ' · ' : ''}
-            </span>
-          ))}
+      <div className="licenses-content">
+        <div className="work-sub-title">{title}</div>
+        <div className="organization text-base mb-1 font-medium">
+          {organization}
         </div>
-      )}
+        <div className="time-info mb-2">
+          Issued {issueDate}
+        </div>
+        
+        {skills && skills.length > 0 && (
+          <div className="skills">
+            <span className="font-semibold">Skills: </span>
+            {skills.map((skill, index) => (
+              <span key={skill.id} className="skill">
+                {skill.name}{index < skills.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

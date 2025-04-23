@@ -55,14 +55,14 @@ export const Header = ({ showTopReminder = true }: HeaderProps) => {
         className="container mx-auto py-8 flex justify-between items-center px-8 md:px-0"
       >
         <div 
-          className="flex items-center gap-2 cursor-pointer group"
+          className="flex items-center gap-2 cursor-pointer group text-spink text-lg" 
           onClick={navigateToHome}
         >
-          <img src={logo} alt="website logo" className="w-8" />
-          <h1 className="uppercase text-spink text-lg font-semibold 
-          tracking-widest group-hover">
-            ✦ Sharon Wong ✦
-          </h1>
+          <img src={logo} alt="website logo" className="w-8" />✦
+          <h1 className="uppercase font-semibold 
+          tracking-widest group-hover:underline underline-offset-8">
+             Sharon Wong 
+          </h1>✦
         </div>
         <div className="hidden md:flex items-center gap-2">
           {navItems.map((item, index) => (

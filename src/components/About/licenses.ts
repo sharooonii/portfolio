@@ -1,4 +1,7 @@
 // licenses.ts
+import fevaworks from "@/assets/company/fevaworks.jpg"
+import hkddmi from "@/assets/company/hkddmi.jpg"
+
 export interface Skill {
   id: string;
   name: string;
@@ -10,6 +13,7 @@ export interface LicenseData {
   organization: string;
   issueDate: string;
   skills?: Skill[];
+  logo: string;
 }
 
 export const licenseData: LicenseData[] = [
@@ -17,6 +21,7 @@ export const licenseData: LicenseData[] = [
     id: "multimedia-web-design",
     title: "Certificate in Multimedia Web Design and Interactive Application Development",
     organization: "Feva Works IT Education Centre",
+    logo: fevaworks,
     issueDate: "Aug 2022",
     skills: [
       { id: "mwd-skill-1", name: "jQuery" },
@@ -30,6 +35,7 @@ export const licenseData: LicenseData[] = [
     id: "uiux-certificate",
     title: "Professional Certificate in UI/UX Website Design with Figma and Adobe XD",
     organization: "Hong Kong Digital Design and Marketing Institute",
+    logo: hkddmi,
     issueDate: "Feb 2022",
     skills: [
       { id: "uiux-skill-1", name: "User Experience (UX)" },
@@ -44,6 +50,7 @@ export const licenseData: LicenseData[] = [
     id: "illustrator-certificate",
     title: "Illustrator Graphic Design and Advertising Professional Certificate",
     organization: "Hong Kong Digital Design and Marketing Institute",
+    logo: hkddmi,
     issueDate: "Dec 2021",
     skills: []
   },
@@ -51,6 +58,7 @@ export const licenseData: LicenseData[] = [
     id: "photoshop-certificate",
     title: "Photoshop Digital Graphic Design Professional Certificate",
     organization: "Hong Kong Digital Design and Marketing Institute",
+    logo: hkddmi,
     issueDate: "Nov 2021",
     skills: [
       { id: "ps-skill-1", name: "Visual Design" }
