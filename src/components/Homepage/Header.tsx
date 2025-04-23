@@ -1,4 +1,4 @@
-import logo from "../../../public/logo.svg";
+import logo from "@/assets/logo.svg";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { AlignJustify } from "lucide-react";
