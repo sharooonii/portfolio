@@ -344,3 +344,32 @@ Button {
 .skills {
   @apply mt-2
 }
+
+/* contact */
+.contact-container {
+  @apply text-black/80 bg-black/80 block h-screen
+}
+
+.contact-inner-container {
+  @apply text-black/80 p-10 block lg:grid grid-cols-2 gap-0 overflow-hidden h-full rounded-lg
+  *:p-16 *:flex *:flex-col *:justify-center;
+}
+
+.contact-title {
+  font-family: "Josefin Sans", sans-serif !important;
+  @apply tracking-wide text-5xl uppercase font-extrabold text-center;
+}
+
+.contact-input {
+  @apply border-2 border-white rounded-md focus-visible:border-stone-700/80
+  focus-visible:ring-lpink outline-none shadow-none h-12
+}
+
+.contact-textarea {
+  @apply border-2 border-white rounded-md focus-visible:border-stone-700/80
+  focus-visible:ring-lpink outline-none shadow-none h-36 overflow-y-auto
+}
+
+.submit-button {
+  @apply bg-white text-black/80 rounded-md w-full h-12 uppercase;
+}

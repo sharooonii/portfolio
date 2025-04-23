@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
   type CarouselApi
 } from "@/components/ui/carousel"
-import { images, ImageItem } from './images';
+import { images, ImageItem } from './design';
 import { useNavigate } from "react-router-dom";
 
 interface PosterItemProps extends ImageItem {

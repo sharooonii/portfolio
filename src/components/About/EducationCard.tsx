@@ -37,22 +37,26 @@ const EducationCard: React.FC<{ education: EducationData }> = ({ education }) =>
           </div>
         )}
         
-        <div className="time-info mb-3">
-          {startTime && endTime ? (
-            <>
-              <span className="start-time">{startTime}</span> - 
-              <span className="end-time"> {endTime}</span>
-            </>
-          ) : year ? (
-            <span className="year">{year}</span>
-          ) : null}
-        </div>
-        
-        {location && (
-          <div className="location-info mb-3">
-            <span className="location">{location}</span>
+        <div className='flex gap-2'>
+          <div className="time-info">
+            {startTime && endTime ? (
+              <>
+                <span className="start-time">{startTime}</span> - 
+                <span className="end-time"> {endTime}</span>
+              </>
+            ) : year ? (
+              <span className="year">{year}</span>
+            ) : null}
           </div>
-        )}
+          
+          <span className='time-info'>·</span>
+
+          {location && (
+            <div className="time-info location-info">
+              <span className="location">{location}</span>
+            </div>
+          )}
+        </div>
         
         {skills && skills.length > 0 && (
           <div className="skills">

@@ -1,9 +1,9 @@
 // experiences.ts
-import deloitte from "@/assets/deloitte-logo.jpg"
+import deloitte from "@/assets/company/deloitte-logo.jpg"
 import unionfaith from "@/assets/home-projects/educare-company-white-logo.png"
-import hktdc from "@/assets/hktdc-logo.png"
+import hktdc from "@/assets/company/hktdc-logo.png"
 import unigel from "@/assets/home-projects/unigel-company-logo.png"
-import oriental from "@/assets/oriental.jpg"
+import oriental from "@/assets/company/oriental.jpg"
 
 
 export interface Duty {

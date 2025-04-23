@@ -11,7 +11,7 @@ import { educationData } from "@/components/About/educations";
 import { SkillTabs } from "@/components/Homepage/SkillTabs";
 
 type SectionStatus = 'passed' | 'active' | 'upcoming';
-type SectionName = 'languages' | 'experience' | 'education' | 'licenses' | 'skills';
+type SectionName = 'languages' | 'experience' | 'skills' | 'education' | 'licenses';
 
 export const AboutMe = () => {
   // References to section divs and titles
@@ -24,15 +24,15 @@ export const AboutMe = () => {
       section: useRef<HTMLDivElement>(null),
       title: useRef<HTMLHeadingElement>(null)
     },
+    skills: {
+      section: useRef<HTMLDivElement>(null),
+      title: useRef<HTMLHeadingElement>(null)
+    },
     education: {
       section: useRef<HTMLDivElement>(null),
       title: useRef<HTMLHeadingElement>(null)
     },
     licenses: {
-      section: useRef<HTMLDivElement>(null),
-      title: useRef<HTMLHeadingElement>(null)
-    },
-    skills: {
       section: useRef<HTMLDivElement>(null),
       title: useRef<HTMLHeadingElement>(null)
     }
@@ -46,7 +46,6 @@ export const AboutMe = () => {
   }, []);
   
   // State to track section status and progress
-  const [activeSection, setActiveSection] = useState<SectionName | null>(null);
   const [sectionStatus, setSectionStatus] = useState<Record<SectionName, SectionStatus>>(
     Object.fromEntries(
       Object.keys(sectionRefs).map(key => [key, 'upcoming'])
@@ -62,8 +61,6 @@ export const AboutMe = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const navHeight = stickyNavRef.current?.offsetHeight || 0;
-      const navTopPosition = stickyNavRef.current ? 
-        stickyNavRef.current.getBoundingClientRect().top + window.scrollY : 0;
       
       const scrollWithOffset = scrollPosition + navHeight + 10;
       
@@ -77,7 +74,6 @@ export const AboutMe = () => {
       // Calculate progress and status for each section
       const newStatus = { ...sectionStatus };
       const newProgress = { ...sectionProgress };
-      let currentActive: SectionName | null = null;
       
       sectionPositions.forEach((section, index) => {
         const nextSection = sectionPositions[index + 1];
@@ -96,7 +92,6 @@ export const AboutMe = () => {
                   (nextSection ? scrollWithOffset < nextSection.titlePosition : 
                    scrollWithOffset < sectionEnd)) {
           newStatus[section.name] = 'active';
-          currentActive = section.name;
         } else {
           newStatus[section.name] = 'passed';
         }
@@ -105,7 +100,6 @@ export const AboutMe = () => {
       // Update states
       setSectionStatus(newStatus);
       setSectionProgress(newProgress);
-      setActiveSection(currentActive);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -139,7 +133,7 @@ export const AboutMe = () => {
         <div className="space-y-16 relative">
           <div ref={stickyNavRef} className="sticky top-0 z-100 bg-white py-3">
             <div className="grid grid-cols-5 items-center text-center uppercase border border-spink divide-x divide-spink rounded-sm overflow-hidden">
-              {Object.keys(sectionRefs).map((section, index) => (
+              {Object.keys(sectionRefs).map((section) => (
                 <div 
                   key={section} 
                   className="relative h-full *:h-full w-full *:flex *:justify-center *:items-center"
@@ -148,8 +142,8 @@ export const AboutMe = () => {
                     {section === 'licenses' ? 'Licenses & Certs' : 
                      section === 'experience' ? 'Work Experience' :
                      section.charAt(0).toUpperCase() + section.slice(1)}
-              </div>
-            </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -163,39 +157,39 @@ export const AboutMe = () => {
                 </h2>
                 {name === 'languages' && (
                   <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 about-section p-5 md:p-10">
-                  {languageData.map((language) => (
-                    <LanguageCard key={language.id} language={language} />
-                  ))}
-                </div>
+                    {languageData.map((language) => (
+                      <LanguageCard key={language.id} language={language} />
+                    ))}
+                  </div>
                 )}
                 
                 {name === 'experience' && (
                   <div className="about-section *:p-5 *:md:p-10 divide-y">
-                  {experienceData.map((experience) => (
-                    <ExperienceCard key={experience.id} experience={experience} />
-                  ))}
-                </div>
-                )}
-                
-                {name === 'education' && (
-                  <div className="about-section *:p-5 *:md:p-10 divide-y">
-                  {educationData.map((education) => (
-                    <EducationCard key={education.id} education={education} />
-                  ))}
-                </div>
-                )}
-                
-                {name === 'licenses' && (
-                <div className="about-section *:p-5 *:md:p-10 divide-y">
-                  {licenseData.map((license) => (
-                    <LicenseCard key={license.id} license={license} />
-                  ))}
-                </div>
+                    {experienceData.map((experience) => (
+                      <ExperienceCard key={experience.id} experience={experience} />
+                    ))}
+                  </div>
                 )}
 
                 {name === 'skills' && (
                   <div className="skill-part">
-                <SkillTabs />
+                    <SkillTabs />
+                  </div>
+                )}
+                
+                {name === 'education' && (
+                  <div className="about-section *:p-5 *:md:p-10 divide-y">
+                    {educationData.map((education) => (
+                      <EducationCard key={education.id} education={education} />
+                    ))}
+                  </div>
+                )}
+                
+                {name === 'licenses' && (
+                  <div className="about-section *:p-5 *:md:p-10 divide-y">
+                    {licenseData.map((license) => (
+                      <LicenseCard key={license.id} license={license} />
+                    ))}
                   </div>
                 )}
               </div>

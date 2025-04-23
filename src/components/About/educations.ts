@@ -31,6 +31,7 @@ export const educationData: EducationData[] = [
     field: "Korean Studies & Spanish",
     startTime: "Sep 2016",
     endTime: "Jun 2020",
+    location: "Hong Kong",
     logo: hkuLogo,
     // skills: [
     //   { id: "edu-skill-1", name: "Spoken English" }
@@ -41,6 +42,7 @@ export const educationData: EducationData[] = [
     institution: "Universidad de Cádiz",
     program: "Summer Semester Exchange Programme, Spanish Language and Literature",
     year: "2019",
+    location: "Spain",
     logo: cadizLogo,
     // skills: [
     //   { id: "edu-skill-1", name: "Spoken English" }
@@ -51,6 +53,7 @@ export const educationData: EducationData[] = [
     institution: "Ewha Womans University 이화여자대학교",
     program: "Summer Semester Exchange Programme, Korean Language and Literature",
     year: "2018",
+    location: "South Korea",
     logo: ewhaLogo,
     // skills: [
     //   { id: "edu-skill-1", name: "Spoken English" }
