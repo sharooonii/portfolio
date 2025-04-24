@@ -12,6 +12,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { toast, Toaster } from "sonner"; // Import both
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import contactImage from "@/assets/contact-image.jpg"
@@ -19,7 +20,9 @@ import { LinkedIn } from "@/components/Homepage/LinkedIn"
 
 const FormSchema = z.object({
   username: z.string().optional(),
-  email: z.string().email({
+  email: z.string().min(1, {
+    message: "Please input your email.",
+  }).email({
     message: "Please enter a valid email address.",
   }),
   message: z.string().min(2, {
@@ -28,7 +31,6 @@ const FormSchema = z.object({
 })
 
 export const Contact = () => {
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -39,21 +41,36 @@ export const Contact = () => {
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    // Your form submission logic here
     console.log(data);
-    // Uncomment if you have toast set up:
-    // toast({
-    //   title: "You submitted the following values:",
-    //   description: (
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-    //     </pre>
-    //   ),
-    // })
+    
+    // Basic success toast
+    // toast.success("Message sent successfully!");
+    
+    // Or toast with more details
+    toast.success("Submitted Successfully!", {
+      description: "I'll get back to you soon.",
+      duration: 8000, // 5 seconds
+      action: {
+        label: 'close',
+        onClick: () => console.log('Closed toast')
+      }
+    });
+    
+    // Reset form after submission
+    form.reset();
   }
 
   return (
     <div id="contact-page" className="contact-container">
+
+      <Toaster 
+        position="bottom-right"
+        className="my-toaster-container"
+        toastOptions={{
+          className: 'my-toast-class',
+        }}
+       />
+      
       <div className="contact-inner-container">
         <div className="bg-white h-full w-full hidden xl:flex flex-col justify-center p-16 space-y-6">
           <img src={contactImage} alt="Sharon Wong" className="mx-auto max-w-[400px] xl:max-w-[500px]"/>
@@ -69,6 +86,7 @@ export const Contact = () => {
           </div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Form fields... */}
               <FormField
                 control={form.control}
                 name="username"
@@ -76,9 +94,7 @@ export const Contact = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input
-                      {...field} 
-                      className="contact-input"/>
+                      <Input {...field} className="contact-input"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -89,11 +105,9 @@ export const Contact = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Email *</FormLabel>
                     <FormControl>
-                      <Input
-                      {...field} 
-                      className="contact-input"/>
+                      <Input {...field} className="contact-input"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -104,11 +118,9 @@ export const Contact = () => {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Message *</FormLabel>
                     <FormControl>
-                      <Textarea
-                      {...field} 
-                      className="contact-textarea"/>
+                      <Textarea {...field} className="contact-textarea"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -116,8 +128,6 @@ export const Contact = () => {
               />
               <div className="pt-4">
                 <Button type="submit" className="submit-button">Submit</Button>
-              </div>
-              <div className="flex justify-between items-center">
               </div>
             </form>
           </Form>

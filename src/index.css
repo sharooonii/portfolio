@@ -172,7 +172,7 @@ Button {
 
 /* header */
 .header-button {
-  @apply hover:bg-transparent text-spink uppercase hover:underline underline-offset-8;
+  @apply hover:bg-transparent uppercase hover:underline underline-offset-8 text-spink;
 }
 
 .top-title {
@@ -373,4 +373,8 @@ Button {
 .submit-button {
   @apply bg-spink text-white rounded-md w-full h-12 uppercase 
   hover:bg-spink/80;
+}
+
+.my-toaster-container {
+  font-family: "Lato", sans-serif;
 }

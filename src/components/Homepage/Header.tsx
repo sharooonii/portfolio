@@ -76,10 +76,13 @@ export const Header = ({ showTopReminder = true }: HeaderProps) => {
             </Button>
           ))}
         </div>
-        <div className="block md:hidden">
+        <div className="flex items-center gap-1 md:hidden">
+          <Button variant="outline" className="!text-spink border-spink uppercase hover:bg-lpink/30 text-xs">Projects</Button>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="!text-spink"><AlignJustify className="size-5"/></Button> 
+              <Button variant="ghost" size="icon" className="!text-spink hover:border hover:border-spink hover:bg-lpink/30">
+                <AlignJustify className="size-5"/>
+              </Button> 
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>

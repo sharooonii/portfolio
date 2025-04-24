@@ -28,9 +28,9 @@ export const Footer = () => {
   return (
     <div
       id="footer"
-      className="bg-nude py-18"
+      className="bg-nude py-8 md:py-18"
     >
-      <div className="container mx-auto flex flex-col lg:flex-row gap-4 lg:gap-2 justify-between items-center">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-2 justify-between items-center">
         <h1 className="uppercase text-sbrown text-base tracking-widest">
           ✦ Thanks for visiting my website! 🥰 ✦
         </h1>

@@ -2,7 +2,7 @@ export const HomeHero = () => {
   return (
     <>
       <div className="container mx-auto py-26">
-        <h1 className="top-title *:inline *:md:block">
+        <h1 className="top-title *:inline *:md:block py-6">
           <p>I can design 👩🏻‍🎨</p>
           <p>& Code 👩🏻‍💻</p>
         </h1>
