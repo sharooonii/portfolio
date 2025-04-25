@@ -128,7 +128,7 @@
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 .container {
@@ -164,7 +164,6 @@ Button {
   animation: x-bounce 1s infinite;
 }
 
-/* Add this to ensure a smooth transition when hover ends */
 .see-more-button:not(:hover) {
   animation: none;
   transition: all 0.3s ease;
@@ -172,7 +171,7 @@ Button {
 
 /* header */
 .header-button {
-  @apply hover:bg-transparent uppercase hover:underline underline-offset-8 text-spink;
+  @apply hover:bg-transparent uppercase hover:underline underline-offset-8;
 }
 
 .top-title {
@@ -182,6 +181,10 @@ Button {
 
 .lucide.lucide-x {
   @apply text-spink size-5
+}
+
+.header-project-button {
+  @apply  uppercase;
 }
 
 /* homepage */
@@ -314,6 +317,33 @@ Button {
   font-family: "Josefin Sans", sans-serif !important;
   @apply font-extrabold text-xl/10 uppercase underline underline-offset-8;
 }
+
+.project-container {
+  @apply container mx-auto px-8 lg:px-20 pb-26 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6
+}
+
+.projects-tabs-list {
+  @apply pb-16 bg-transparent mx-auto gap-2 h-fit
+}
+
+.projects-tabs-trigger {
+  @apply border border-spink text-spink hover:bg-nude/50
+  data-[state=active]:text-white data-[state=active]:bg-spink w-26 h-9;
+}
+
+.portfolio-title {
+  @apply text-5xl lg:text-6xl font-bold;
+}
+
+.portfolio-p {
+  @apply text-xl lg:text-2xl;
+}
+
+.bg-unionfaith {
+  background-image: url("./assets/portfolio/unionfaith/star.png");
+  @apply bg-[#295254];
+}
+
 
 /* about me page */
 #about-me-page .section-title {

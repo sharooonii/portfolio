@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, UseFormReturn } from "react-hook-form"; // Add UseFormReturn import
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ShadcnUI/button";
 import {
   Form,
   FormControl,
@@ -13,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@/components/ShadcnUI/form";
+import { RadioGroup, RadioGroupItem } from "@/components/ShadcnUI/radio-group";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
 // Define types for better organization
@@ -137,7 +137,7 @@ const ResultFeedback: FC<{
   };
   
   return (
-    <div className={`border mt-6 tracking-wide p-6 rounded-sm space-y-3
+    <div className={`border mt-6 p-6 rounded-sm space-y-3
     ${result.correct ? 'bg-green-50/50 border-green-700' : 'bg-red-50/50 border-red-700'}`}>
       <div className="flex items-center gap-2">
         {result.correct ? (

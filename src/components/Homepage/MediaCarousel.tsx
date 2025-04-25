@@ -6,8 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi
-} from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
+} from "@/components/ShadcnUI/carousel";
+import { Button } from "@/components/ShadcnUI/button";
 import { ChevronLeft, ChevronRight, InstagramIcon } from "lucide-react";
 
 // Import your images locally

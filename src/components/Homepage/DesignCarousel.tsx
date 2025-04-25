@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Button } from "../ui/button"
+import { Button } from "../ShadcnUI/button"
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import {
@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi
-} from "@/components/ui/carousel"
+} from "@/components/ShadcnUI/carousel"
 import { images, ImageItem } from './design';
 import { useNavigate } from "react-router-dom";
 
@@ -41,17 +41,7 @@ const SeeMoreButton: FC = () => {
   const navigate = useNavigate();
 
   const handleSeeMoreDesign = () => {
-    navigate("/projects");
-    // Use setTimeout to ensure navigation completes before scrolling
-    setTimeout(() => {
-      const designSection = document.getElementById("design");
-      if (designSection) {
-        // Scroll to show the top of the element with a small offset
-        const yOffset = -80; // Adjust this value as needed for your header height
-        const y = designSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "auto" });
-      }
-    }, 100);
+    navigate("/portfolio/graphics");
   }
 
   return (

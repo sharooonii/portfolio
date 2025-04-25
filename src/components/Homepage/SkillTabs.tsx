@@ -4,7 +4,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs"
+} from "@/components/ShadcnUI/tabs"
 import { skills } from "./skills";
 
 export const SkillTabs = () => {

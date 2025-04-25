@@ -1,13 +1,12 @@
-import { Button } from "../ui/button";
+import { Button } from "../ShadcnUI/button";
 import { LinkedIn } from "./LinkedIn";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
   
-  // Updated navigate functions to use route paths
   const navigateToProjects = () => {
-    navigate("/projects");
+    navigate("/portfolio");
   };
 
   const navigateToAbout = () => {
@@ -18,7 +17,6 @@ export const Footer = () => {
     navigate("/contact");
   };
 
-  // Navigation items array for easier management
   const navItems = [
     { name: "Projects", onClick: navigateToProjects },
     { name: "About Me", onClick: navigateToAbout },
@@ -26,10 +24,7 @@ export const Footer = () => {
   ];
 
   return (
-    <div
-      id="footer"
-      className="bg-nude py-8 md:py-18"
-    >
+    <footer id="footer" className="bg-nude py-8 md:py-18 w-full mt-auto">
       <div className="container mx-auto flex flex-col lg:flex-row gap-2 justify-between items-center">
         <h1 className="uppercase text-sbrown text-base tracking-widest">
           ✦ Thanks for visiting my website! 🥰 ✦
@@ -48,6 +43,6 @@ export const Footer = () => {
           ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

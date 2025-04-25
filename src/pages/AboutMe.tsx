@@ -128,7 +128,7 @@ export const AboutMe = () => {
   return (
     <div id="about-me-page" className="container mx-auto">
       <h1 className="top-title py-12 md:py-26 text-center">About Me</h1>
-      <div className="space-y-16 pb-26">
+      <div className="space-y-16 pb-26 animate__animated animate__fadeInUp">
         <AboutHero />
         <div className="space-y-16 relative">
           <div ref={stickyNavRef} className="sticky top-0 z-100 bg-white py-3">

@@ -33,7 +33,7 @@ export const projects = [
     companyLogo: deloitteLogo,
     whiteCompanyLogo: deloitteWhiteLogo,
     companyAlt: "Deloitte",
-    url: "",
+    url: "/portfolio/deloitte",
     hover_color: "#18181b",
     color: "#18181b",
     year: "2025"
@@ -47,8 +47,8 @@ export const projects = [
     companyLogo: educareLogo,
     whiteCompanyLogo: educareWhiteLogo,
     companyAlt: "Union Faith Corp.",
-    url: "",
-    hover_color: "#5e2adb",
+    url: "/portfolio/unionfaith",
+    hover_color: "#295254",
     color: "#18181b",
     year: "2023 - 2024"
   },
@@ -61,7 +61,7 @@ export const projects = [
     companyLogo: unigelLogo,
     whiteCompanyLogo: unigelWhiteLogo,
     companyAlt: "Unigel Ltd.",
-    url: "",
+    url: "/portfolio/unigel",
     hover_color: "#ff914d",
     color: "#18181b",
     year: "2023"
@@ -75,7 +75,7 @@ export const projects = [
     companyLogo: hktdc,
     whiteCompanyLogo: hktdcWhiteLogo,
     companyAlt: "Hong Kong Trade Development Council (HKTDC)",
-    url: "",
+    url: "/portfolio/belt-and-road-summit",
     hover_color: "#1380c3",
     color: "#18181b",
     year: "2023"
@@ -89,7 +89,7 @@ export const projects = [
     companyLogo: hktdc,
     whiteCompanyLogo: hktdcWhiteLogo,
     companyAlt: "Hong Kong Trade Development Council (HKTDC)",
-    url: "",
+    url: "/portfolio/asia-summit-on-global-health",
     hover_color: "#66eef5",
     color: "#18181b",
     year: "2022 - 2023"
@@ -103,7 +103,7 @@ export const projects = [
     companyLogo: a1Logo,
     whiteCompanyLogo: a1WhiteLogo,
     companyAlt: "A1 Bakery",
-    url: "",
+    url: "/portfolio/a1-bakery",
     hover_color: "#b12225",
     color: "#18181b",
     year: "2021"

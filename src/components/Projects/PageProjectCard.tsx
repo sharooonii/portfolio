@@ -57,7 +57,7 @@ export const PageProjectCard = ({
         <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 z-10">
           <div className="text-center p-6">
             <LockKeyhole className="mx-auto mb-4 h-12 w-12" />
-            <p className="text-lg font-medium tracking-wide">
+            <p className="text-lg font-medium">
               This project is not yet publicly launched.
               <br />
               I'd be happy to showcase it during our interview.
@@ -81,7 +81,7 @@ export const PageProjectCard = ({
             {isLock && <LockKeyhole className="h-5 w-5" />}
           </div>
           
-          <p className="text-lg tracking-wide">{description}</p>
+          <p className="text-lg">{description}</p>
         </div>
       </div>
       <div>

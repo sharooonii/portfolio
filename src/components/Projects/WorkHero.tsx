@@ -1,5 +1,5 @@
 import logoWhite from "../../../public/logo-white.svg";
-import { Button } from "../ui/button";
+import { Button } from "../ShadcnUI/button";
 import { X } from "lucide-react";
 
 interface WorkHeroProps {

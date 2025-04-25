@@ -2,10 +2,23 @@ import { projects } from "@/components/Homepage/projects";
 import { PageProjectCard } from "@/components/Projects/PageProjectCard";
 import { images } from "@/components/Homepage/design";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ShadcnUI/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ShadcnUI/tabs";
+import { useParams, useNavigate } from "react-router-dom";
 
 export const Projects = () => {
+  const { category } = useParams();
+  const navigate = useNavigate();
+  
+  // Determine default tab based on URL param
+  const defaultTab = category === "graphics" ? "graphics" : "website";
+
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -53,66 +66,64 @@ export const Projects = () => {
     }
   };
 
+  // Handle tab change
+  const handleTabChange = (value: string) => {
+    navigate(`/portfolio/${value}`);
+  };
+
   return (
     <>
-    <div className="container mx-auto py-26 space-y-6">
-      <h1 className="top-title text-center">Projects</h1>
-      <div className="text-sbrown flex justify-center w-full text-lg">
-        <div className="px-5 md:px-20 xl:px-48 2xl:px-96 *:inline space-x-1">
-          <div>
-            I'm a unicorn developer with expertise in 
-            <span className="font-bold ml-1">UI/UX Design</span> and 
-            <span className="font-bold ml-1">Frontend Development</span>. 
-          </div>
-          <div>
-            With a passion for exceptional user experiences, I create 
-            <span className="font-bold ml-1">stunning</span>, 
-            <span className="font-bold ml-1">intuitive</span>, and 
-            <span className="font-bold mx-1">functional</span>website.
-          </div>
+    <div className="container mx-auto pt-26 pb-10">
+      <h1 className="top-title text-center">Portfolio</h1>
+    </div>
+    <Tabs defaultValue={defaultTab} onValueChange={handleTabChange} className="animate__animated animate__fadeInUp">
+      <TabsList className="projects-tabs-list">
+        <TabsTrigger 
+          value="website" 
+          className="header-project-button projects-tabs-trigger">
+            Website
+        </TabsTrigger>
+        <TabsTrigger 
+          value="graphics" 
+          className="header-project-button projects-tabs-trigger">
+            Graphics
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent value="website" className="animate__animated animate__fadeIn">
+        <div className="project-container">
+          {projects.map((project, index) => (
+            <PageProjectCard
+              key={index}
+              color={project.color}
+              hover_color={project.hover_color}
+              year={project.year}
+              title={project.title}
+              description={project.description}
+              src={project.src}
+              color_src={project.color_src}
+              alt={project.alt}
+              whiteCompanyLogo={project.whiteCompanyLogo}
+              companyAlt={project.companyAlt}
+              url={project.url}
+              isLock={project.companyAlt === "Deloitte" && true}
+            />
+          ))}
         </div>
-      </div>
-    </div>
-    <div className="container mx-auto px-8 lg:px-20 pb-26 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      {projects.map((project, index) => (
-        <PageProjectCard
-          key={index}
-          color={project.color}
-          hover_color={project.hover_color}
-          year={project.year}
-          title={project.title}
-          description={project.description}
-          src={project.src}
-          color_src={project.color_src}
-          alt={project.alt}
-          whiteCompanyLogo={project.whiteCompanyLogo}
-          companyAlt={project.companyAlt}
-          url={project.url}
-          isLock={project.companyAlt === "Deloitte" && true}
-        />
-      ))}
-    </div>
-    <div id="design" className="container mx-auto py-26 space-y-6">
-      <h1 className="top-title text-center">Design</h1>
-      <div className="text-sbrown flex justify-center w-full text-lg">
-        <div className="px-5 md:px-20 xl:px-48 2xl:px-96">
-          With strong <span className="font-bold ml-1">graphic design</span> skills, I create compelling visual identities, 
-          impactful marketing materials, and cohesive brand assets that effectively 
-          communicate your message and engage your audience.
+      </TabsContent>
+      <TabsContent value="graphics" className="animate__animated animate__fadeIn">
+        <div className="project-container">
+          {images.map((img, index) => (
+            <div 
+              key={index} 
+              className="w-full h-full rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              onClick={() => openLightbox(index)}
+            >
+              <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
-    <div className="container mx-auto px-8 lg:px-20 pb-26 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      {images.map((img, index) => (
-        <div 
-          key={index} 
-          className="w-full h-full rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-          onClick={() => openLightbox(index)}
-        >
-          <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-        </div>
-      ))}
-    </div>
+      </TabsContent>
+    </Tabs>
 
     {/* Lightbox */}
     {lightboxOpen && (

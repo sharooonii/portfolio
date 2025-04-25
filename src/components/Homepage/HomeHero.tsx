@@ -1,16 +1,14 @@
 export const HomeHero = () => {
   return (
-    <>
-      <div className="container mx-auto py-26">
-        <h1 className="top-title *:inline *:md:block py-6">
-          <p>I can design 👩🏻‍🎨</p>
-          <p>& Code 👩🏻‍💻</p>
-        </h1>
-        <div className="text-xl pt-2">
-          <div>Hello, I am Sharon Wong.</div>
-          <div>UI UX Designer | Frontend Developer | Based in Hong Kong</div>
-        </div>
+    <div className="container mx-auto py-26">
+      <h1 className="top-title *:inline *:md:block py-6">
+        <p>I can design 👩🏻‍🎨</p>
+        <p>& Code 👩🏻‍💻</p>
+      </h1>
+      <div className="text-xl pt-2">
+        <div>Hello, I am Sharon Wong.</div>
+        <div>UI UX Designer | Frontend Developer | Based in Hong Kong</div>
       </div>
-    </>
+    </div>
   );
 };

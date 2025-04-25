@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ShadcnUI/button"
 import {
   Form,
   FormControl,
@@ -11,11 +11,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ShadcnUI/form"
 import { toast, Toaster } from "sonner"; // Import both
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import contactImage from "@/assets/contact-image.jpg"
+import { Input } from "@/components/ShadcnUI/input"
+import { Textarea } from "@/components/ShadcnUI/textarea"
+import contactImage from "@/assets/contact/contact-image.jpg"
 import { LinkedIn } from "@/components/Homepage/LinkedIn"
 
 const FormSchema = z.object({
@@ -61,7 +61,7 @@ export const Contact = () => {
   }
 
   return (
-    <div id="contact-page" className="contact-container">
+    <div id="contact-page" className="contact-container animate__animated animate__fadeInUp">
 
       <Toaster 
         position="bottom-right"
