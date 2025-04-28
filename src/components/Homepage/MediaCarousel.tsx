@@ -212,7 +212,7 @@ const DesignCard = ({ item }: { item: DesignItem }) => {
               <img 
                 src={item.image} 
                 alt={item.alt} 
-                className="w-full h-full object-cover object-center transition-transform duration-300"
+                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             

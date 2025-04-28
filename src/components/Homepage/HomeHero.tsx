@@ -1,9 +1,13 @@
+import { ContainerTextFlip } from "../AceternityUI/ContainerTextFlip";
+
 export const HomeHero = () => {
   return (
     <div className="container mx-auto py-26">
-      <h1 className="top-title *:inline *:md:block py-6">
-        <p>I can design 👩🏻‍🎨</p>
-        <p>& Code 👩🏻‍💻</p>
+      <h1 className="top-title flex gap-4 *:inline py-6">
+        <p>I can</p> 
+        <ContainerTextFlip
+          words={["code", "design"]}
+        />
       </h1>
       <div className="text-xl pt-2">
         <div>Hello, I am Sharon Wong.</div>
