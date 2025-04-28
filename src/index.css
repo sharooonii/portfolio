@@ -132,7 +132,7 @@ body {
 }
 
 .container {
-  @apply px-10
+  @apply px-2 md:px-10
 }
 
 .josefin {
@@ -234,7 +234,7 @@ Button {
 
 #about-me-page .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer rounded-none
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50 hover:bg-white
   data-[state=active]:text-spink data-[state=active]:bg-white;
 }
 

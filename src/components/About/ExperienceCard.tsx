@@ -60,7 +60,7 @@ const ExperienceCard: React.FC<{ experience: ExperienceData }> = ({ experience }
   const displayRange = endTime === "Present" ? calculateRange() : range;
 
   return (
-    <div className="experience-card flex gap-4">
+    <div className="experience-card flex flex-col md:flex-row gap-4">
       <div className="experience-logo-container max-w-14">
         <img src={logo} alt={company} className="experience-logo w-full" />
       </div>

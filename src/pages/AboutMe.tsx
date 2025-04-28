@@ -253,7 +253,7 @@ export const AboutMe = () => {
       {/* Fixed navigation at the bottom */}
       <div ref={stickyNavRef} className="fixed bottom-10 right-0 z-50">
         <div className="container mx-auto">
-          <div className="items-center text-center uppercase border border-spink divide-y divide-spink rounded-sm overflow-hidden bg-white w-32 text-center">
+          <div className="items-center text-center uppercase border border-spink divide-y divide-spink rounded-sm overflow-hidden bg-white w-36 text-center">
             {Object.keys(sectionRefs).map((section) => (
               <div 
                 key={section}
@@ -262,7 +262,7 @@ export const AboutMe = () => {
               >
                 <div 
                   className={`py-2 text-xs w-full ${
-                    getDisplayedActiveSection() === section ? 'bg-spink text-white font-medium' : 'text-black/60'
+                    getDisplayedActiveSection() === section ? 'bg-spink text-white font-medium' : 'text-black/60 hover:bg-lpink/50'
                   }`}
                 >
                   {section === 'licenses' ? 'Licenses & Certs' : 

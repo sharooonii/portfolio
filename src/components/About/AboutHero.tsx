@@ -11,7 +11,11 @@ export const AboutHero = () => {
   return (
     <div className="bg-lpink/50 p-10 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10 items-center">
       <div className="md:col-span-2 space-y-2 md:space-y-4 xl:space-y-6 text-center">
-        <div className="josefin text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase">✦ Hello, I am Sharon Wong ✦</div>
+        <div className="josefin text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase">
+          <span className="hidden xl:block">✦ Hello, I am Sharon Wong ✦</span>
+          <div className="xl:hidden block">✦ Hello ✦</div>
+          <div className="xl:hidden block mt-1">I am Sharon Wong </div>
+        </div>
         <div className="text-base md:text-lg">UI UX Designer | Frontend Developer | Deloitte AI Institute</div>
         <LinkedIn />
       </div>

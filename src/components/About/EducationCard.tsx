@@ -16,7 +16,7 @@ const EducationCard: React.FC<{ education: EducationData }> = ({ education }) =>
   } = education;
 
   return (
-    <div className="education-card flex gap-4">
+    <div className="education-card flex flex-col md:flex-row gap-4">
       <div className="education-logo-container max-w-14">
         <img src={logo} alt={institution} className="education-logo w-full" />
       </div>

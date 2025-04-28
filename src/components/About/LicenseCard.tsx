@@ -12,7 +12,7 @@ const LicenseCard: React.FC<{ license: LicenseData }> = ({ license }) => {
   } = license;
 
   return (
-    <div className="licenses-card flex gap-4">
+    <div className="licenses-card flex flex-col md:flex-row gap-4">
       <div className="education-logo-container max-w-14">
         <img src={logo} alt={organization} className="licenses-logo w-full" />
       </div>
