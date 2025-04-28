@@ -10,6 +10,6 @@ export const ProjectLayout = () => (
       <Header showTopReminder={false} isWhite={true} />
       <div className="text-stone-800"><Outlet /></div>
     </div>
-    <Footer />
+    <Footer isPortfolio={true} />
   </div>
 );

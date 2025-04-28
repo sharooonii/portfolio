@@ -13,6 +13,7 @@ import {
 } from "@/components/ShadcnUI/carousel"
 import { images, ImageItem } from './design';
 import { useNavigate } from "react-router-dom";
+import { CardContainer } from '../ui/3d-card';
 
 interface PosterItemProps extends ImageItem {
   onClick: () => void;
@@ -30,10 +31,12 @@ interface ImageLightboxProps {
 
 // Poster Item Component
 const PosterItem: FC<PosterItemProps> = ({ src, alt, description, onClick }) => (
-  <div className="space-y-1 cursor-pointer" onClick={onClick}>
-    <img src={src} alt={alt} className="w-full rounded-md h-auto hover:opacity-90 transition-opacity"/>
-    <p className="text-center">{description}</p>
-  </div>
+  <CardContainer className='py-2'>
+    <div className="space-y-1 cursor-pointer" onClick={onClick}>
+      <img src={src} alt={alt} className="w-full rounded-lg h-auto hover:opacity-90 transition-opacity"/>
+      <p className="text-center">{description}</p>
+    </div>
+  </CardContainer>
 );
 
 // See More Button Component

@@ -19,10 +19,10 @@ export const Toolkit: React.FC<ToolkitProps> = ({
   className = ""
 }) => {
   return (
-    <div className={`py-16 ${className}`}>
+    <div className={`lg:py-16 ${className}`}>
       <div className="text-center mb-12">
-        <p className="uppercase tracking-wider text-sm font-medium text-gray-600 mb-2">{subtitle}</p>
-        <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
+        <p className="project-section-subtitle">{subtitle}</p>
+        <h2 className="project-section-title mb-10">{title}</h2>
       </div>
       
       <div className="container mx-auto">

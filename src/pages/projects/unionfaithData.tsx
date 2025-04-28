@@ -6,31 +6,36 @@ import typescript from "@/assets/tools/typescript.png"
 
 const features = [
   {
-    title: "Achieve your business goals",
-    description: "Firebase A/B Testing shows you the impact app changes have on your most important business metrics. Out-of-the-box, it tracks retention, revenue, and engagement. In conjunction with Google Analytics for Firebase, you can also track how user actions change in each experiment.",
-    imageSrc: desktopBeginning,
-    imageAlt: "Business analytics dashboard"
-  },
-  {
-    title: "Optimize user experience",
+    subtitle: "feature",
+    title: "Insurance Quotation",
     description: "Improve your app by testing different versions with real users. Make data-driven decisions about what works best for your audience and fine-tune your application accordingly.",
     imageSrc: desktopBeginning,
     imageAlt: "User experience optimization"
   },
   {
-    title: "Achieve your business goals",
+    subtitle: "feature",
+    title: "Online Insurance Purchase",
     description: "Firebase A/B Testing shows you the impact app changes have on your most important business metrics. Out-of-the-box, it tracks retention, revenue, and engagement. In conjunction with Google Analytics for Firebase, you can also track how user actions change in each experiment.",
     imageSrc: desktopBeginning,
     imageAlt: "Business analytics dashboard"
   },
   {
-    title: "Optimize user experience",
+    subtitle: "feature",
+    title: "Mobile-Friendly",
     description: "Improve your app by testing different versions with real users. Make data-driven decisions about what works best for your audience and fine-tune your application accordingly.",
     imageSrc: desktopBeginning,
     imageAlt: "User experience optimization"
   },
   {
-    title: "Simple implementation",
+    subtitle: "style",
+    title: "Branding",
+    description: "More concrete and outstanding brand image, Much clearer visual hierarchy, Focus on the quotation need of target customers",
+    imageSrc: desktopBeginning,
+    imageAlt: "Homepage"
+  },
+  {
+    subtitle: "style",
+    title: "Design System",
     description: "Get started quickly with our easy-to-use interface. Define your variants, set your goals, and let our tools handle the heavy lifting of tracking and analysis.",
     imageSrc: desktopBeginning,
     imageAlt: "Simple implementation diagram"

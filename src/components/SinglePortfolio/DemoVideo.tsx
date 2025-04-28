@@ -9,6 +9,7 @@ export const DemoVideo: React.FC<DemoVideoProps> = ({
 }) => {
   return (
     <div className={`${className}`}>
+      {/* <h2 className="text-center text-3xl sm:text-5xl font-bold mb-10">Demo Video</h2> */}
       <div className="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl">
         <video 
           src={videoSrc} 

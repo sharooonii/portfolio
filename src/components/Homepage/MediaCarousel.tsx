@@ -9,6 +9,7 @@ import {
 } from "@/components/ShadcnUI/carousel";
 import { Button } from "@/components/ShadcnUI/button";
 import { ChevronLeft, ChevronRight, InstagramIcon } from "lucide-react";
+import { CardContainer } from "../ui/3d-card";
 
 // Import your images locally
 import design1 from "@/assets/ig/design1.jpg";
@@ -198,35 +199,37 @@ export const MediaCarousel = () => {
 // Extracted design card component for reuse
 const DesignCard = ({ item }: { item: DesignItem }) => {
   return (
-    <div className="overflow-hidden border-0 rounded-lg">
-      <div className="p-0 relative group">
-        <div className="aspect-square w-full overflow-hidden">
-          <img 
-            src={item.image} 
-            alt={item.alt} 
-            className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-          />
+    <CardContainer className="hover:-translate-y-1 py-1">
+      <a 
+        href={item.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <div className="overflow-hidden border-0 rounded-lg">
+          <div className="p-0 relative group">
+            <div className="aspect-square w-full overflow-hidden">
+              <img 
+                src={item.image} 
+                alt={item.alt} 
+                className="w-full h-full object-cover object-center transition-transform duration-300"
+              />
+            </div>
+            
+            {/* Caption overlay */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 transform transition-transform duration-300">
+              <p className="text-white text-sm font-medium line-clamp-2">
+                {item.alt}
+              </p>
+              
+              <div className="flex items-center gap-1 text-pink-300 text-xs mt-2 group-hover:text-pink-400">
+                <InstagramIcon size={14} />
+                <span>View on Instagram</span>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        {/* Caption overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 transform transition-transform duration-300">
-          <p className="text-white text-sm font-medium line-clamp-2">
-            {item.alt}
-          </p>
-          
-          {item.link && (
-            <a 
-              href={item.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-pink-300 text-xs hover:underline mt-2 group-hover:text-pink-400"
-            >
-              <InstagramIcon size={14} />
-              <span>View on Instagram</span>
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
+      </a>
+    </CardContainer>
   );
 };

@@ -1,8 +1,10 @@
 import { Button } from "../ShadcnUI/button";
 import { LinkedIn } from "./LinkedIn";
 import { useNavigate } from "react-router-dom";
+import logo from "@/assets/logo.svg";
+import logoGray from "@/assets/logo-gray.svg"
 
-export const Footer = () => {
+export const Footer = ({ isPortfolio = false }: { isPortfolio?: boolean }) => {
   const navigate = useNavigate();
   
   const navigateToProjects = () => {
@@ -24,18 +26,21 @@ export const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="bg-nude py-8 md:py-18 w-full mt-auto">
+    <footer id="footer" className={`${isPortfolio ? "bg-gray-100" : "bg-nude"} py-8 md:py-18 w-full mt-auto`}>
       <div className="container mx-auto flex flex-col lg:flex-row gap-2 justify-between items-center">
-        <h1 className="uppercase text-sbrown text-base tracking-widest">
-          ✦ Thanks for visiting my website! 🥰 ✦
-        </h1>
-        <LinkedIn />
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
+          <img src={isPortfolio ? logoGray : logo} alt="logo" className="w-8 h-8"/>
+          <h1 className={`uppercase ${isPortfolio ? "text-black/60" : "text-sbrown"} text-base tracking-widest`}>
+            ✦ Thanks for visiting my website! 🥰 ✦
+          </h1>
+        </div>
+        <LinkedIn isPortfolio={isPortfolio} />
         <div className="flex items-center gap-2">
           {navItems.map((item, index) => (
             <Button 
               key={index}
               variant="ghost" 
-              className="header-button josefin !text-sbrown" 
+              className={`header-button josefin ${isPortfolio ? "!text-black/60" : "!text-sbrown"}`} 
               onClick={item.onClick}
             >
               {item.name}

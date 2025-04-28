@@ -344,6 +344,22 @@ Button {
   @apply bg-[#295254];
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.project-section-title {
+  @apply font-bold text-3xl sm:text-4xl;
+}
+
+.project-section-subtitle {
+  @apply uppercase tracking-wider text-sm font-medium text-gray-500 mb-2;
+}
 
 /* about me page */
 #about-me-page .section-title {

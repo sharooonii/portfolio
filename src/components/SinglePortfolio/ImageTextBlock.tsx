@@ -1,4 +1,5 @@
 interface ImageTextBlockProps {
+  subtitle: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -8,6 +9,7 @@ interface ImageTextBlockProps {
 }
 
 export const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
+  subtitle,
   title,
   description,
   imageSrc,
@@ -19,11 +21,12 @@ export const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
   const isImageRight = index % 2 === 0;
 
   return (
-    <div className={`container mx-auto py-16 px-4 ${className}`}>
+    <div className={`container mx-auto py-10 lg:py-16 lg:px-4 ${className}`}>
       <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 items-center">
         {/* Content Section */}
         <div className={`${isImageRight ? 'lg:order-1' : 'lg:order-2'} mb-8 lg:mb-0`}>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">{title}</h2>
+          <p className="project-section-subtitle">{subtitle}</p>
+          <h2 className="project-section-title mb-4">{title}</h2>
           <div className="text-lg opacity-90 leading-relaxed">{description}</div>
         </div>
 

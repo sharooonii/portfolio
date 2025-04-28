@@ -1,6 +1,6 @@
 import { Linkedin } from "lucide-react";
 
-export const LinkedIn = () => {
+export const LinkedIn = ({ isPortfolio = false }: { isPortfolio?: boolean }) => {
 
   const navigateToLinkedin = () => {
     // Open LinkedIn profile in a new tab
@@ -9,10 +9,10 @@ export const LinkedIn = () => {
 
   return (
     <div className="flex justify-center items-center gap-2 cursor-pointer group mt-2 lg:mt-0" onClick={navigateToLinkedin}>
-      <div className="size-8 rounded-lg bg-sbrown text-white flex justify-center items-center">
+      <div className={`size-8 rounded-lg ${isPortfolio ? "bg-black/60" : "bg-sbrown"} text-white flex justify-center items-center`}>
         <Linkedin className="size-5"/>
       </div>
-      <p className="josefin uppercase group-hover:underline underline-offset-8 font-bold font-xl">
+      <p className={`josefin uppercase group-hover:underline underline-offset-8 font-bold font-xl ${isPortfolio ? "text-black/60" : "text-sbrown"}`}>
         My LinkedIn
       </p>
     </div>
