@@ -2,7 +2,7 @@ import { ProjectTemplate } from "./ProjectTemplate";
 import desktopBeginning from "@/assets/portfolio/unionfaith/desktop-beginning.png";
 import mobileBeginning from "@/assets/portfolio/unionfaith/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/unionfaith/tablet-beginning.png";
-import demoVideoUrl from "@/assets/demo-video.mp4";
+import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
 import { features, projectTools } from "./unionfaithData";
 
 export const UnionFaith = () => {
@@ -42,7 +42,7 @@ export const UnionFaith = () => {
       introduction="Union Faith Corp, a Hong Kong insurance agent company operating under the brand 'Educare (教安心)', sought digital rebranding to sell family insurance online. Their target audience primarily consists of teachers and civil servants in Hong Kong, requiring a focused digital strategy to protect these professionals and their loved ones."
       
       // Demo video
-      demoVideoSrc={demoVideoUrl}
+      demoVideoSrc={videoURL}
       
       // Features
       features={features}

@@ -11,6 +11,7 @@ import {
   TabsTrigger,
 } from "@/components/ShadcnUI/tabs";
 import { useParams, useNavigate } from "react-router-dom";
+import { CardContainer } from "@/components/ui/3d-card";
 
 export const Projects = () => {
   const { category } = useParams();
@@ -113,13 +114,15 @@ export const Projects = () => {
       <TabsContent value="graphics" className="animate__animated animate__fadeIn">
         <div className="project-container">
           {images.map((img, index) => (
-            <div 
-              key={index} 
-              className="w-full h-full rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-              onClick={() => openLightbox(index)}
-            >
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-            </div>
+            <CardContainer>
+              <div 
+                key={index} 
+                className="w-full h-full rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                onClick={() => openLightbox(index)}
+              >
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+              </div>
+            </CardContainer>
           ))}
         </div>
       </TabsContent>

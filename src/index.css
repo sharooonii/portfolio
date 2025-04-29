@@ -207,7 +207,7 @@ Button {
 }
 
 .skill-part .combo {
-  @apply gap-0 rounded-xl overflow-hidden border
+  @apply gap-0 rounded-xl overflow-hidden
 }
 
 #about-me-page .skill-part .combo {
@@ -228,13 +228,13 @@ Button {
 
 .skill-part .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
-  border-none text-stone-600/90 shadow-none bg-zinc-50
-  data-[state=active]:text-spink data-[state=active]:bg-white;
+  border-none text-stone-600/90 shadow-none bg-zinc-50 lg:mt-16 hover:bg-white
+  data-[state=active]:text-spink data-[state=active]:bg-white data-[state=active]:lg:mt-0;
 }
 
 #about-me-page .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer rounded-none
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50 hover:bg-white
+  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50 mt-0 hover:bg-white
   data-[state=active]:text-spink data-[state=active]:bg-white;
 }
 
@@ -243,7 +243,7 @@ Button {
 }
 
 .skill-part .tabs-content {
-  @apply p-8 md:p-12 bg-white rounded-b-lg space-y-8 md:space-y-10
+  @apply p-8 md:p-12 bg-white rounded-b-lg space-y-8 md:space-y-10 z-10 overflow-hidden
 }
 
 .skill-part .icon-container {

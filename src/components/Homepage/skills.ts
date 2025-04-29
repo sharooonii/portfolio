@@ -47,6 +47,8 @@ import surveymonkey from "@/assets/tools/surveymonkey.png"
 import lookback from "@/assets/tools/lookback.png"
 import maze from "@/assets/tools/maze.jpg"
 import browserstack from "@/assets/tools/browserstack.png"
+import capcut from "@/assets/tools/capcut.png"
+import animatecss from "@/assets/tools/animatecss.jpg"
 
 export const skills = [
   {
@@ -262,6 +264,11 @@ export const skills = [
     ],
     tools: [
       {
+        name: "Figma",
+        description: "Designing and collaborating on interfaces with real-time feedback",
+        img: figma,
+      },
+      {
         name: "Photoshop",
         description: "Editing and creating visual assets to enhance interface design",
         img: photoshop,
@@ -272,11 +279,6 @@ export const skills = [
         img: illustrator,
       },
       {
-        name: "Figma",
-        description: "Designing and collaborating on interfaces with real-time feedback",
-        img: figma,
-      },
-      {
         name: "Adobe XD",
         description: "Prototyping user experiences for interactive testing",
         img: adobexd,
@@ -285,6 +287,16 @@ export const skills = [
         name: "After Effect",
         description: "Creating motion graphics and animations to enrich UI elements",
         img: aftereffect,
+      },
+      {
+        name: "Premiere Pro",
+        description: "Creating and editing professional-quality videos for product demos and UI demonstrations",
+        img: premierpro,
+      },
+      {
+        name: "CapCut",
+        description: "Quickly producing and editing social media-friendly UI demos and design presentations",
+        img: capcut,
       },
       {
         name: "LottieFiles",
@@ -527,6 +539,11 @@ export const skills = [
         name: "AceternityUI",
         description: "Adding advanced UI effects for engaging interfaces",
         img: aceternityui
+      },
+      {
+        name: "Animate.css",
+        description: "Adding ready-to-use CSS animations for smooth, engaging interface transitions",
+        img: animatecss
       },
       {
         name: "Motion",

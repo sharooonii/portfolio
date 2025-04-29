@@ -7,6 +7,7 @@ import { Toolkit } from "@/components/SinglePortfolio/Toolkit";
 import { ScrollIndicator } from "@/components/Utilities/ScrollIndicator";
 import { ProjectScrollCarousel } from "@/components/SinglePortfolio/ProjectScrollCarousel";
 import { ResultsOverview } from "@/components/SinglePortfolio/ResultsOverview";
+import AnimatedSection from '@/components/Utilities/AnimatedSection';
 
 interface Feature {
   subtitle: string;
@@ -14,6 +15,7 @@ interface Feature {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  bgColor: string;
 }
 
 interface ResultItem {
@@ -117,48 +119,58 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
       <ScrollIndicator 
         color={scrollIndicatorColor}
       />
+
       <ProjectOverview
         title={title}
         role={role}
         dateRange={dateRange}
         introduction={introduction}
       />
+
       {demoVideoSrc && (
         <DemoVideo 
           videoSrc={demoVideoSrc}
         />
       )}
+
       <div>
         {features.map((feature, index) => (
-          <ImageTextBlock
-            key={index}
-            index={index}
-            subtitle={feature.subtitle}
-            title={feature.title}
-            description={feature.description}
-            imageSrc={feature.imageSrc}
-            imageAlt={feature.imageAlt}
-          />
+          <AnimatedSection>
+            <ImageTextBlock
+              key={index}
+              index={index}
+              subtitle={feature.subtitle}
+              title={feature.title}
+              description={feature.description}
+              imageSrc={feature.imageSrc}
+              imageAlt={feature.imageAlt}
+              bgColor={feature.bgColor}
+            />
+          </AnimatedSection>
         ))}
       </div>
       
       {showResults && resultItems.length > 0 && (
-        <ResultsOverview 
-          title="Results Overview"
-          results={resultItems}
-          colors={resultColors}
-        />
+        <AnimatedSection>
+          <ResultsOverview 
+            title="Results Overview"
+            results={resultItems}
+            colors={resultColors}
+          />
+        </AnimatedSection>
       )}
       
-      <Toolkit
-        subtitle={toolkitSubtitle}
-        title={toolkitTitle}
-        tools={tools.map(tool => ({
-          imgSrc: tool.icon,
-          toolName: tool.name,
-          url: tool.url
-        }))}
-      />
+      <AnimatedSection>
+        <Toolkit
+          subtitle={toolkitSubtitle}
+          title={toolkitTitle}
+          tools={tools.map(tool => ({
+            imgSrc: tool.icon,
+            toolName: tool.name,
+            url: tool.url
+          }))}
+        />
+      </AnimatedSection>
       
       <ProjectScrollCarousel />
 
