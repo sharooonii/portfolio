@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { CardContainer } from "@/components/AceternityUI/3d-card";
 import { LockKeyhole } from "lucide-react";
 import { useState } from "react";
-import { CardContainer, CardItem } from "@/components/ui/3d-card";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectCardProps {
   color: string;
@@ -15,43 +15,44 @@ interface ProjectCardProps {
   whiteCompanyLogo: string;
   companyAlt: string;
   url: string;
-  isLock: boolean; 
+  isLock: boolean;
 }
 
-export const PageProjectCard = ({ 
+export const PageProjectCard = ({
   color,
   hover_color,
   year,
-  title, 
-  description, 
-  src, 
+  title,
+  description,
+  src,
   color_src,
-  alt, 
+  alt,
   whiteCompanyLogo,
   companyAlt,
   url,
-  isLock=false 
+  isLock = false,
 }: ProjectCardProps) => {
-  
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const handleClick = () => {
     if (!isLock) {
       navigate(url);
     }
-  }
-  
+  };
+
   return (
     <CardContainer className="h-full">
-      <div 
+      <div
         id="page-project-card"
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`h-full group relative text-white flex flex-col rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 ${!isLock ? "cursor-pointer" : ""}`}
-        style={{ 
-          backgroundColor: isHovered ? hover_color : color 
+        className={`h-full group relative text-white flex flex-col rounded-xl overflow-hidden custom-shadow hover:-translate-y-1 transition-all duration-300 ${
+          !isLock ? "cursor-pointer" : ""
+        }`}
+        style={{
+          backgroundColor: isHovered ? hover_color : color,
         }}
       >
         {/* Overlay that appears on hover when isLock is true */}
@@ -67,12 +68,12 @@ export const PageProjectCard = ({
             </div>
           </div>
         )}
-        
+
         <div className="px-10 pt-10 flex-grow space-y-4">
           <div className="h-10 flex justify-between items-center">
-            <img 
-              src={whiteCompanyLogo} 
-              alt={companyAlt} 
+            <img
+              src={whiteCompanyLogo}
+              alt={companyAlt}
               className="max-w-full h-full transition-all duration-300"
             />
             <div className="text-white/80">{year}</div>
@@ -82,14 +83,14 @@ export const PageProjectCard = ({
               <h1 className="project-card-title">{title}</h1>
               {isLock && <LockKeyhole className="h-5 w-5" />}
             </div>
-            
+
             <p className="text-lg">{description}</p>
           </div>
         </div>
         <div>
-          <img 
-            src={isHovered && color_src ? color_src : src} 
-            alt={alt} 
+          <img
+            src={isHovered && color_src ? color_src : src}
+            alt={alt}
             className="w-full transition-all duration-300"
           />
         </div>
