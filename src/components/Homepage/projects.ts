@@ -47,7 +47,7 @@ export const projects = [
     companyLogo: educareLogo,
     whiteCompanyLogo: educareWhiteLogo,
     companyAlt: "Union Faith Corp.",
-    url: "/portfolio/unionfaith",
+    url: "/portfolio/union-faith",
     hover_color: "#295254",
     color: "#18181b",
     year: "2023 - 2024"

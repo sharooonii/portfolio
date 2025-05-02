@@ -32,7 +32,7 @@ export const Toolkit: React.FC<ToolkitProps> = ({
               <img 
                 src={tool.imgSrc} 
                 alt={tool.toolName} 
-                className="h-14 w-14 object-contain mb-3" 
+                className="h-14 w-14 object-contain mb-3 rounded-md" 
               />
               <span className="text-sm text-center">{tool.toolName}</span>
             </div>

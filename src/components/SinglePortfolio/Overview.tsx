@@ -14,7 +14,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
   introduction
 }) => {
   return (
-    <div className="container mx-auto block lg:grid grid-cols-2 *:px-0 *:lg:px-14">
+    <div className="container mx-auto block lg:grid grid-cols-2 *:px-0 *:lg:px-4">
       <div>
         <h1 className="portfolio-title">{title}</h1>
         <div className="*:space-x-2 mt-4 lg:mt-10">

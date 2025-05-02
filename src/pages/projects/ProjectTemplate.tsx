@@ -8,6 +8,8 @@ import { ScrollIndicator } from "@/components/Utilities/ScrollIndicator";
 import { ProjectScrollCarousel } from "@/components/SinglePortfolio/ProjectScrollCarousel";
 import { ResultsOverview } from "@/components/SinglePortfolio/ResultsOverview";
 import AnimatedSection from '@/components/Utilities/AnimatedSection';
+import { Features, FeaturesDataProps } from '@/components/EldoraUI/Features';
+import { PackageSearch, Settings, Eye } from 'lucide-react';
 
 interface Feature {
   subtitle: string;
@@ -66,6 +68,22 @@ interface ProjectTemplateProps {
   
   // Additional classes
   className?: string;
+  
+  // Features component props
+  featuresData?: FeaturesDataProps[];
+  featuresProgressBarColor?: string;
+  featuresSectionTitle?: string;
+  featuresCollapseDelay?: number;
+  featuresLtr?: boolean;
+  
+  // Multiple features sections
+  featuresSections?: {
+    [key: string]: {
+      data: FeaturesDataProps[];
+      title: string;
+      progressBarColor: string;
+    }
+  };
 }
 
 export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
@@ -89,9 +107,6 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
   // Demo video
   demoVideoSrc,
   
-  // Features
-  features,
-  
   // Results overview
   showResults = false,
   resultItems = [],
@@ -104,9 +119,12 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
   
   // Additional classes
   className = "",
+  
+  // Multiple features sections
+  featuresSections = {},
 }) => {
   return (
-    <div className={`mb-36 space-y-26 ${className}`}>
+    <div className={`mb-36 space-y-36 ${className}`}>
       <ProjectHero
         bgClass={bgClass}
         subtitle={subtitle}
@@ -132,24 +150,20 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
           videoSrc={demoVideoSrc}
         />
       )}
-
-      <div>
-        {features.map((feature, index) => (
-          <AnimatedSection>
-            <ImageTextBlock
-              key={index}
-              index={index}
-              subtitle={feature.subtitle}
-              title={feature.title}
-              description={feature.description}
-              imageSrc={feature.imageSrc}
-              imageAlt={feature.imageAlt}
-              bgColor={feature.bgColor}
-            />
-          </AnimatedSection>
-        ))}
-      </div>
       
+      {Object.keys(featuresSections).length > 0 && (
+        <div className="space-y-36">
+          {Object.entries(featuresSections).map(([key, section], index) => (
+            <Features 
+              key={key}
+              data={section.data}
+              progressBarColor={section.progressBarColor}
+              sectionTitle={section.title}
+            />
+          ))}
+        </div>
+      )}
+
       {showResults && resultItems.length > 0 && (
         <AnimatedSection>
           <ResultsOverview 
@@ -160,18 +174,16 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
         </AnimatedSection>
       )}
       
-      <AnimatedSection>
-        <Toolkit
-          subtitle={toolkitSubtitle}
-          title={toolkitTitle}
-          tools={tools.map(tool => ({
-            imgSrc: tool.icon,
-            toolName: tool.name,
-            url: tool.url
-          }))}
-        />
-      </AnimatedSection>
-      
+      <Toolkit
+        subtitle={toolkitSubtitle}
+        title={toolkitTitle}
+        tools={tools.map(tool => ({
+          imgSrc: tool.icon,
+          toolName: tool.name,
+          url: tool.url
+        }))}
+      />
+
       <ProjectScrollCarousel />
 
     </div>

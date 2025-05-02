@@ -1,8 +1,8 @@
 import { Button } from "../ShadcnUI/button";
 import { LinkedIn } from "./LinkedIn";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/logo-brown.svg";
-import logoGray from "@/assets/logo-gray.svg"
+import logo from "@/assets/logo/logo-brown.svg";
+import logoGray from "@/assets/logo/logo-gray.svg"
 
 export const Footer = ({ isPortfolio = false }: { isPortfolio?: boolean }) => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
-import whiteLogo from "@/assets/logo-white.svg";
-import logo from "@/assets/logo.svg";
+import whiteLogo from "@/assets/logo/logo-white.svg";
+import logo from "@/assets/logo/logo-pink.svg";
 import {
   Sheet,
   SheetContent,

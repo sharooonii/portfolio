@@ -3,28 +3,28 @@ import desktopBeginning from "@/assets/portfolio/unionfaith/desktop-beginning.pn
 import mobileBeginning from "@/assets/portfolio/unionfaith/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/unionfaith/tablet-beginning.png";
 import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
-import { featuresSections, projectTools } from "../data/unionfaithData";
+import { featuresSections, projectTools } from "../data/a1BakeryData";
 
-export const UnionFaith = () => {
+export const A1Bakery = () => {
 
   return (
     <ProjectTemplate
       // Hero props
-      bgClass="bg-unionfaith"
+      bgClass="bg-a1bakery"
       subtitle="Revamping Digital Insurance"
-      title="Union Faith Corp."
+      title="A1 Bakery"
       desktopImgSrc={desktopBeginning}
       tabletImgSrc={tabletBeginning}
       mobileImgSrc={mobileBeginning}
-      imgAlt="union faith hero poster"
+      imgAlt="a1 bakery hero poster"
       
       // Scroll indicator
       scrollIndicatorColor="#F3D05B"
       
       // Overview props
       role="UI UX Designer, Frontend Developer"
-      dateRange="Aug 2023 - Oct 2024"
-      introduction="Union Faith Corp, a Hong Kong insurance agent company operating under the brand 'Educare (教安心)', sought digital rebranding to sell family insurance online. Their target audience primarily consists of teachers and civil servants in Hong Kong, requiring a focused digital strategy to protect these professionals and their loved ones."
+      dateRange="Aug 2021 - Oct 2021"
+      introduction="A1 Bakery is an international bakery chain. I redesigned the website to improve the user experience and increase conversion rates."
       
       // Demo video
       demoVideoSrc={videoURL}

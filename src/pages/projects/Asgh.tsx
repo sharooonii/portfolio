@@ -3,28 +3,28 @@ import desktopBeginning from "@/assets/portfolio/unionfaith/desktop-beginning.pn
 import mobileBeginning from "@/assets/portfolio/unionfaith/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/unionfaith/tablet-beginning.png";
 import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
-import { featuresSections, projectTools } from "../data/unionfaithData";
+import { featuresSections, projectTools } from "../data/asghData";
 
-export const UnionFaith = () => {
+export const Asgh = () => {
 
   return (
     <ProjectTemplate
       // Hero props
-      bgClass="bg-unionfaith"
+      bgClass="bg-asgh"
       subtitle="Revamping Digital Insurance"
-      title="Union Faith Corp."
+      title="Asia Summit on Global Health"
       desktopImgSrc={desktopBeginning}
       tabletImgSrc={tabletBeginning}
       mobileImgSrc={mobileBeginning}
-      imgAlt="union faith hero poster"
+      imgAlt="asgh hero poster"
       
       // Scroll indicator
       scrollIndicatorColor="#F3D05B"
       
       // Overview props
       role="UI UX Designer, Frontend Developer"
-      dateRange="Aug 2023 - Oct 2024"
-      introduction="Union Faith Corp, a Hong Kong insurance agent company operating under the brand 'Educare (教安心)', sought digital rebranding to sell family insurance online. Their target audience primarily consists of teachers and civil servants in Hong Kong, requiring a focused digital strategy to protect these professionals and their loved ones."
+      dateRange="Aug 2021 - Oct 2021"
+      introduction="Asia Summit on Global Health is a conference that brings together experts from around the world to discuss the latest developments in global health. I redesigned the website to improve the user experience and increase conversion rates."
       
       // Demo video
       demoVideoSrc={videoURL}

@@ -68,7 +68,7 @@ const QuizForm: FC<{
   resetKey: number;
 }> = ({ form, onSubmit, submitted, navigateToAboutPage, resetKey }) => (
   <Form {...form} key={resetKey}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="text-slate-700">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="text-zinc-700">
       <FormField
         control={form.control}
         name="guess"
@@ -167,7 +167,7 @@ const ResultFeedback: FC<{
           <Button 
             onClick={resetQuiz}
             variant="outline"
-            className="border-slate-700 text-slate-700 hover:bg-slate-50"
+            className="border-slate-700 text-zinc-700 hover:bg-zinc-50"
           >
             Try Again
           </Button>

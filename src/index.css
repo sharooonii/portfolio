@@ -123,7 +123,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-stone-700/80 tracking-wide;
+    @apply bg-background text-zinc-700/80 tracking-wide;
   }
 }
 
@@ -229,13 +229,13 @@ Button {
 
 .skill-part .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer lg:rounded-t-xl rounded-b-none rounded-t-none
-  border-none text-stone-600/90 shadow-none bg-zinc-50 lg:mt-16 hover:bg-white
+  border-none text-zinc-600/90 shadow-none bg-zinc-50 lg:mt-16 hover:bg-white
   data-[state=active]:text-spink data-[state=active]:bg-white data-[state=active]:lg:mt-0;
 }
 
 #about-me-page .tabs-trigger {
   @apply p-4 flex lg:flex-col items-center justify-start lg:justify-center gap-4 lg:gap-3 relative cursor-pointer rounded-none
-  border-none border-transparent text-stone-600/90 shadow-none bg-zinc-50 mt-0 hover:bg-white
+  border-none border-transparent text-zinc-600/90 shadow-none bg-zinc-50 mt-0 hover:bg-white
   data-[state=active]:text-spink data-[state=active]:bg-white;
 }
 
@@ -333,7 +333,7 @@ Button {
 }
 
 .portfolio-title {
-  @apply text-5xl lg:text-6xl font-bold;
+  @apply text-5xl lg:text-7xl font-bold;
 }
 
 .portfolio-p {
@@ -341,8 +341,33 @@ Button {
 }
 
 .bg-unionfaith {
-  background-image: url("./assets/portfolio/unionfaith/star.png");
+  background-image: url("./assets/portfolio/unionfaith/bg.png");
   @apply bg-[#295254];
+}
+
+.bg-a1bakery {
+  background-image: url("./assets/portfolio/a1bakery/bg.png");
+  @apply bg-[#b12225];
+}
+
+.bg-asgh {
+  background-image: url("./assets/portfolio/asgh/bg.png");
+  @apply bg-[#66eef5];
+}
+
+.bg-bnr {
+  background-image: url("./assets/portfolio/bnr/bg.png");
+  @apply bg-[#1380c3];
+}
+
+.bg-deloitte {
+  background-image: url("./assets/portfolio/deloitte/bg.png");
+  @apply bg-[#18181b];
+}
+
+.bg-unigel {
+  background-image: url("./assets/portfolio/unigel/bg.png");
+  @apply bg-[#ff914d];
 }
 
 .hide-scrollbar {
@@ -408,12 +433,12 @@ Button {
 }
 
 .contact-input {
-  @apply border-2 border-stone-700/30 rounded-md focus-visible:border-stone-700/80
+  @apply border-2 border-zinc-700/30 rounded-md focus-visible:border-zinc-700/80
   focus-visible:ring-lpink outline-none shadow-none h-12;
 }
 
 .contact-textarea {
-  @apply border-2 border-stone-700/30 rounded-md focus-visible:border-stone-700/80
+  @apply border-2 border-zinc-700/30 rounded-md focus-visible:border-zinc-700/80
   focus-visible:ring-lpink outline-none shadow-none h-36 overflow-y-auto;
 }
 
@@ -424,4 +449,8 @@ Button {
 
 .my-toaster-container {
   font-family: "Lato", sans-serif;
+}
+
+.feature-icon {
+  @apply flex size-12 shrink-0 justify-center items-center rounded-full bg-zinc-50;
 }
