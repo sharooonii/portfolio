@@ -12,6 +12,7 @@ import { A1Bakery } from "@/pages/projects/A1Bakery"
 import { Asgh } from "@/pages/projects/Asgh"
 import { Bnr } from "@/pages/projects/Bnr"
 import { Deloitte } from "@/pages/projects/Deloitte"
+import { Unigel } from "./pages/projects/Unigel";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="portfolio/asia-summit-on-global-health" element={<Asgh />} />
           <Route path="portfolio/belt-and-road-summit" element={<Bnr />} />
           <Route path="portfolio/deloitte" element={<Deloitte />} />
+          <Route path="portfolio/unigel" element={<Unigel />} />
         </Route>
         
         {/* 404 page */}

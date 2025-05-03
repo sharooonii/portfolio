@@ -347,27 +347,27 @@ Button {
 
 .bg-a1bakery {
   background-image: url("./assets/portfolio/a1bakery/bg.png");
-  @apply bg-[#b12225];
+  @apply bg-[#b12225] bg-cover;
 }
 
 .bg-asgh {
   background-image: url("./assets/portfolio/asgh/bg.png");
-  @apply bg-[#66eef5];
+  @apply bg-[#66eef5] bg-bottom bg-no-repeat bg-cover;
 }
 
 .bg-bnr {
   background-image: url("./assets/portfolio/bnr/bg.png");
-  @apply bg-[#1380c3];
+  @apply bg-[#3b5aa6] bg-cover;
 }
 
 .bg-deloitte {
   background-image: url("./assets/portfolio/deloitte/bg.png");
-  @apply bg-[#18181b];
+  @apply bg-[#09090c] bg-cover;
 }
 
 .bg-unigel {
   background-image: url("./assets/portfolio/unigel/bg.png");
-  @apply bg-[#ff914d];
+  @apply bg-[#ff914d] bg-center bg-no-repeat bg-cover;
 }
 
 .hide-scrollbar {

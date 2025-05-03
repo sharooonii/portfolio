@@ -71,8 +71,11 @@ export const AboutMe = () => {
   }, [location.hash]);
 
   // Debounced scroll handler
-  const debounce = (func: Function, wait: number) => {
-    return function executedFunction(...args: any[]) {
+  const debounce = <T extends (...args: unknown[]) => unknown>(
+    func: T,
+    wait: number
+  ) => {
+    return function executedFunction(...args: Parameters<T>) {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
