@@ -3,7 +3,7 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion, useInView } from "framer-motion";
 import type { ReactNode } from "react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState, useCallback } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,7 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Item
       className={cn(
-        "mt-px overflow-hidden focus-within:relative focus-within:z-10",
+        "focus-within:relative focus-within:z-10",
         className,
       )}
       {...props}
@@ -88,7 +88,7 @@ export interface FeaturesProps {
 }
 
 export function Features({
-  collapseDelay = 10000,
+  collapseDelay = 8000,
   data = [],
   progressBarColor = "bg-primary", // Default value
   sectionTitle = "Insurance Quotation", // Default value
@@ -96,11 +96,46 @@ export function Features({
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const carouselRef = useRef<HTMLUListElement>(null);
   const ref = useRef(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const isInView = useInView(ref, {
     once: true,
     amount: 0.5,
   });
 
+  // Add ref for video element
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Add Intersection Observer for video
+  useEffect(() => {
+    if (!videoRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            videoRef.current?.play().catch(error => {
+              console.error("Error playing video:", error);
+            });
+          } else {
+            videoRef.current?.pause();
+          }
+        });
+      },
+      { threshold: 0.2 } // Trigger when at least 20% of the video is visible
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, [currentIndex]);
+  
+  // Initialize first item when component comes into view
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isInView) {
@@ -113,7 +148,8 @@ export function Features({
     return () => clearTimeout(timer);
   }, [isInView]);
 
-  const scrollToIndex = (index: number) => {
+  // Scroll to selected item
+  const scrollToIndex = useCallback((index: number) => {
     if (carouselRef.current) {
       const card = carouselRef.current.querySelectorAll(".card")[index];
       if (card) {
@@ -130,41 +166,48 @@ export function Features({
         });
       }
     }
-  };
+  }, []);
 
+  // Auto-advance timer
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex !== undefined ? (prevIndex + 1) % data.length : 0,
-      );
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    
+    // Only start timer if we have items
+    if (data.length <= 0 || !isInView) return;
+    
+    timerRef.current = setTimeout(() => {
+      setCurrentIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % data.length;
+        scrollToIndex(nextIndex);
+        return nextIndex;
+      });
     }, collapseDelay);
-
-    return () => clearInterval(timer);
-  }, [collapseDelay, currentIndex, data.length]);
-
-  useEffect(() => {
-    const handleAutoScroll = () => {
-      const nextIndex =
-        (currentIndex !== undefined ? currentIndex + 1 : 0) % data.length;
-      scrollToIndex(nextIndex);
+    
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
     };
+  }, [collapseDelay, currentIndex, data.length, scrollToIndex, isInView]);
 
-    const autoScrollTimer = setInterval(handleAutoScroll, collapseDelay);
-
-    return () => clearInterval(autoScrollTimer);
-  }, [collapseDelay, currentIndex, data.length]);
-
+  // Handle scroll events
   useEffect(() => {
     const carousel = carouselRef.current;
     if (carousel) {
       const handleScroll = () => {
-        const scrollLeft = carousel.scrollLeft;
-        const cardWidth = carousel.querySelector(".card")?.clientWidth || 0;
-        const newIndex = Math.min(
-          Math.floor(scrollLeft / cardWidth),
-          data.length - 1,
-        );
-        setCurrentIndex(newIndex);
+        // Use requestAnimationFrame to avoid performance issues
+        requestAnimationFrame(() => {
+          const scrollLeft = carousel.scrollLeft;
+          const cardWidth = carousel.querySelector(".card")?.clientWidth || 0;
+          const newIndex = Math.min(
+            Math.floor(scrollLeft / cardWidth),
+            data.length - 1,
+          );
+          setCurrentIndex(newIndex);
+        });
       };
 
       carousel.addEventListener("scroll", handleScroll);
@@ -176,8 +219,8 @@ export function Features({
     <section ref={ref} id="features">
       <div className="container mx-auto space-y-16">
         <h1 className="portfolio-title">{sectionTitle}</h1>
-        <div className="grid h-full items-center gap-10 lg:grid-cols-3">
-          <div className="h-full lg:flex justify-start">
+        <div className="grid h-full items-center gap-10 xl:grid-cols-3">
+          <div className="h-full xl:flex justify-start">
             <Accordion.Root
               className=""
               type="single"
@@ -193,63 +236,98 @@ export function Features({
                   className="relative"
                   value={`item-${index}`}
                 >
-                  <div className={`absolute inset-y-0 h-full left-0 right-auto rounded-lg bg-zinc-100 
-                  ${currentIndex === index ? "w-1" : "w-0.5"} transition-all duration-300`}>
+                  {/* progress bar */}
+                  <div className={`absolute inset-y-0 h-full left-0 right-auto bg-zinc-100 
+                  ${currentIndex === index ? "w-1.5 -translate-x-0.5" : "w-0.5"} transition-width duration-300`}>
                     <div
-                      className={`absolute left-0 top-0 w-full ${
-                        currentIndex === index ? "h-full" : "h-0"
-                      } origin-top ${progressBarColor} transition-all ease-in-out`}
+                      className={`absolute left-0 top-0 w-full h-full origin-top ${progressBarColor}`}
                       style={{
-                        transitionDuration:
-                          currentIndex === index
-                            ? `${collapseDelay}ms`
-                            : "500ms",
+                        transform: currentIndex === index ? 'scaleY(1)' : 'scaleY(0)',
+                        transformOrigin: 'top',
+                        transition: currentIndex === index 
+                          ? `transform ${collapseDelay}ms linear` 
+                          : 'none'
                       }}
                     ></div>
                   </div>
 
                   <div className={`relative pl-6 py-2 flex gap-4 cursor-pointer ${ 
-                    currentIndex === index ? "opacity-100" : "opacity-30 hover:opacity-50 items-center"} transition-opacity duration-300 ease-in-out`}>
-                      <div className="feature-icon transition-transform duration-300 ease-in-out">{item.icon}</div>
+                    currentIndex === index ? "opacity-100" : "opacity-30 hover:opacity-50 items-center"} transition-opacity duration-300 linear`}>
+                      <div className="feature-icon transition-transform duration-300 linear">{item.icon}</div>
                       <div className="space-y-2">
                         <AccordionTrigger className={`${ 
-                          currentIndex === index ? "text-xl " : "text-lg" } font-medium text-left transition-all duration-300 ease-in-out`}>
+                          currentIndex === index ? "text-xl " : "text-lg" } font-medium text-left transition-[font-size] duration-300 linear`}>
                           {item.title}
                         </AccordionTrigger>
                         {currentIndex === index && 
-                          <AccordionTrigger className="leading-6 text-left transition-all duration-300 ease-in-out">
+                          <AccordionTrigger className="leading-6 text-left">
                             {item.content}
-                          </AccordionTrigger>
-                        }
-                    </div>
+                          </AccordionTrigger>}
+                      </div>
                   </div>
                 </AccordionItem>
               ))}
             </Accordion.Root>
           </div>
-          <div className="h-[600px] min-h-[200px] w-auto lg:col-span-2">
+          <div className="min-h-[calc(100vh-150px)] w-auto xl:col-span-2 rounded-xl bg-zinc-900 border border-neutral-300/50 shadow-lg overflow-hidden">
             {data[currentIndex]?.image ? (
               <motion.img
                 key={currentIndex}
                 src={data[currentIndex].image}
                 alt="feature"
-                className="aspect-auto size-full rounded-xl border border-neutral-300/50 object-cover object-left-top p-1 shadow-lg"
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="aspect-auto size-full object-cover object-left-top"
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -150 }}
+                transition={{ 
+                  duration: 1.2, 
+                  type: "spring",
+                  stiffness: 70,
+                  damping: 25,
+                  mass: 1.5
+                }}
+                loading="lazy"
               />
             ) : data[currentIndex]?.video ? (
-              <video
-                preload="auto"
-                src={data[currentIndex].video}
-                className="aspect-auto size-full rounded-lg object-cover shadow-lg"
-                autoPlay
-                loop
-                muted
-              />
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -150 }}
+                transition={{ 
+                  duration: 1.2, 
+                  type: "spring",
+                  stiffness: 70,
+                  damping: 25,
+                  mass: 1.5
+                }}
+              >
+                <video
+                  ref={videoRef}
+                  preload="metadata"
+                  src={data[currentIndex].video}
+                  className="aspect-auto size-full rounded-lg object-cover shadow-lg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </motion.div>
             ) : (
-              <div className="aspect-auto size-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1"></div>
+              <motion.div
+                key={currentIndex}
+                className="aspect-auto size-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1"
+                initial={{ opacity: 0, x: 150 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -150 }}
+                transition={{ 
+                  duration: 1.2, 
+                  type: "spring",
+                  stiffness: 70,
+                  damping: 25,
+                  mass: 1.5
+                }}
+              />
             )}
           </div>
         </div>

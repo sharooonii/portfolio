@@ -1,5 +1,5 @@
-import React, { ReactNode, useEffect, useState, useRef } from "react";
 import { motion, Variants } from "framer-motion";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 
 // Define animation and direction types
 type AnimationType = "fade" | "slide" | "scale" | "custom";
@@ -27,7 +27,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   direction = "up",
   delay = 0,
   duration = 0.6,
-  once = true,
+  // once = true,
   className = "",
   customVariants = null,
   respondToScroll = false,
@@ -40,25 +40,25 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(true); // Whether to animate or not
   const elementRef = useRef<HTMLDivElement>(null);
-  
+
   // Set up scroll listener to determine scroll direction
   useEffect(() => {
     if (!respondToScroll && !repeatAnimation) return;
-    
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const isScrollingDown = currentScrollY > lastScrollY.current;
-      
+
       // Update scroll direction
       if (respondToScroll) {
         setScrollDirection(isScrollingDown ? "down" : "up");
       }
-      
+
       // Handle repeated animations
       if (repeatAnimation && elementRef.current) {
         const rect = elementRef.current.getBoundingClientRect();
         const isInView = rect.top < window.innerHeight - 50 && rect.bottom > 50;
-        
+
         // For downwardOnly mode, only animate when scrolling down
         if (downwardOnly) {
           if (isInView && !isVisible && isScrollingDown) {
@@ -83,10 +83,10 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
           }
         }
       }
-      
+
       lastScrollY.current = currentScrollY;
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [respondToScroll, repeatAnimation, isVisible, downwardOnly]);
@@ -113,7 +113,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     none: {
       hidden: { opacity: 1 },
       visible: { opacity: 1 },
-    }
+    },
   } as const;
 
   // Create fade effects based on animation type and scroll direction
@@ -124,9 +124,9 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   } else if (animation === "fade") {
     if (respondToScroll) {
       effectiveVariant = {
-        hidden: { 
-          opacity: 0, 
-          y: scrollDirection === "down" ? 100 : -100
+        hidden: {
+          opacity: 0,
+          y: scrollDirection === "down" ? 100 : -100,
         },
         visible: { opacity: 1, y: 0 },
       };
@@ -151,12 +151,16 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   const selectedVariant = customVariants || effectiveVariant;
 
   // Determine if we should use a longer duration for stronger fade effects
-  const effectiveDuration = (animation === "fade" && (direction === "up" || direction === "down" || respondToScroll)) 
-    ? 0.8 
-    : duration;
+  const effectiveDuration =
+    animation === "fade" &&
+    (direction === "up" || direction === "down" || respondToScroll)
+      ? 0.8
+      : duration;
 
   // Force a unique animation key when we want to repeat animations
-  const animationKey = repeatAnimation ? `animation-${isVisible}-${shouldAnimate}` : undefined;
+  const animationKey = repeatAnimation
+    ? `animation-${isVisible}-${shouldAnimate}`
+    : undefined;
 
   return (
     <motion.div

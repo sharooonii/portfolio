@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import GraphemeSplitter from "grapheme-splitter";
+import { motion } from "motion/react";
 
 export interface ContainerTextFlipProps {
   /** Array of words to cycle through in the animation */
@@ -54,10 +54,7 @@ export function ContainerTextFlip({
       layout
       layoutId={`words-here-${id}`}
       style={{ width: maxWidth }}
-      className={cn(
-        "relative inline-block",
-        className,
-      )}
+      className={cn("relative inline-block", className)}
     >
       {words.map((word, index) => (
         <motion.div
@@ -79,22 +76,25 @@ export function ContainerTextFlip({
             textClassName
           )}
         >
-          {splitter.splitGraphemes(word).map((letter: string, letterIndex: number) => (
-            <motion.span
-              key={letterIndex}
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              animate={{
-                opacity: currentWordIndex === index ? 1 : 0,
-                filter: currentWordIndex === index ? "blur(0px)" : "blur(10px)",
-              }}
-              transition={{
-                delay: letterIndex * 0.02,
-                duration: animationDuration / 1000,
-              }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
+          {splitter
+            .splitGraphemes(word)
+            .map((letter: string, letterIndex: number) => (
+              <motion.span
+                key={letterIndex}
+                initial={{ opacity: 0, filter: "blur(10px)" }}
+                animate={{
+                  opacity: currentWordIndex === index ? 1 : 0,
+                  filter:
+                    currentWordIndex === index ? "blur(0px)" : "blur(10px)",
+                }}
+                transition={{
+                  delay: letterIndex * 0.02,
+                  duration: animationDuration / 1000,
+                }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </motion.span>
+            ))}
         </motion.div>
       ))}
     </motion.p>

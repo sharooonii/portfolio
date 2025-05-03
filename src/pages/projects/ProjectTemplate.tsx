@@ -2,14 +2,12 @@ import React from 'react';
 import { ProjectHero } from "@/components/SinglePortfolio/ProjectHero";
 import { ProjectOverview } from "@/components/SinglePortfolio/Overview";
 import { DemoVideo } from "@/components/SinglePortfolio/DemoVideo";
-import { ImageTextBlock } from "@/components/SinglePortfolio/ImageTextBlock";
 import { Toolkit } from "@/components/SinglePortfolio/Toolkit";
 import { ScrollIndicator } from "@/components/Utilities/ScrollIndicator";
 import { ProjectScrollCarousel } from "@/components/SinglePortfolio/ProjectScrollCarousel";
 import { ResultsOverview } from "@/components/SinglePortfolio/ResultsOverview";
 import AnimatedSection from '@/components/Utilities/AnimatedSection';
 import { Features, FeaturesDataProps } from '@/components/EldoraUI/Features';
-import { PackageSearch, Settings, Eye } from 'lucide-react';
 
 interface Feature {
   subtitle: string;
@@ -153,7 +151,7 @@ export const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
       
       {Object.keys(featuresSections).length > 0 && (
         <div className="space-y-36">
-          {Object.entries(featuresSections).map(([key, section], index) => (
+          {Object.entries(featuresSections).map(([key, section]) => (
             <Features 
               key={key}
               data={section.data}

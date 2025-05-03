@@ -1,6 +1,6 @@
 import { Toaster } from 'sonner';
 
-function ToastRoot({ children }) {
+function ToastRoot({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
