@@ -1,7 +1,8 @@
 import desktopBeginning from "@/assets/portfolio/deloitte/desktop-beginning.png";
 import mobileBeginning from "@/assets/portfolio/deloitte/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/deloitte/tablet-beginning.png";
-import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+// import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+import videoURL from "@/assets/portfolio/deloitte/deloitte-demo-video.mp4";
 import { featuresSections, projectTools } from "../data/deloitteData";
 import { ProjectTemplate } from "./ProjectTemplate";
 

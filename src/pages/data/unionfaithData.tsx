@@ -1,7 +1,15 @@
 import desktopBeginning from "@/assets/portfolio/unionfaith/desktop-beginning.png"
-import quotation from "@/assets/portfolio/unionfaith/auto-quotation.png"
-import purchase from "@/assets/portfolio/unionfaith/purchase.png"
+import quotation1 from "@/assets/portfolio/unionfaith/quotation-1.png"
+import quotation2 from "@/assets/portfolio/unionfaith/quotation-2.png"  
+import quotation3 from "@/assets/portfolio/unionfaith/quotation-3.png"
+import purchase1 from "@/assets/portfolio/unionfaith/purchase-1.png"
+import purchase2 from "@/assets/portfolio/unionfaith/purchase-2.png"
+import purchase3 from "@/assets/portfolio/unionfaith/purchase-3.png"
+import responsive1 from "@/assets/portfolio/unionfaith/responsive-1.png"
+// import responsive2 from "@/assets/portfolio/unionfaith/responsive-2.png"
+
 import mobile from "@/assets/portfolio/unionfaith/responsive.png"
+
 
 import canva from "@/assets/tools/canva.png"
 import figma from "@/assets/tools/figma.png"
@@ -26,7 +34,7 @@ import git from "@/assets/tools/git.png"
 import node from '@/assets/tools/node.png'
 
 // Import icons from Lucide or your preferred icon library
-import {BadgeDollarSign, GitCompare, MapPlus, ShoppingCart, Smartphone, Paintbrush, Layout } from 'lucide-react';
+import {BadgeDollarSign, GitCompare, MapPlus, ShoppingCart, Smartphone, Paintbrush, Layout, ClipboardCheck, Shield } from 'lucide-react';
 
 // Project Introduction
 const projectIntro = {
@@ -47,22 +55,22 @@ const quotationFeatures = [
   {
     id: 1,
     title: "Prominent Pricing Display",
-    content: "User interviews revealed pricing as the top priority, so I positioned the quotation tool prominently below the hero banner for immediate visibility and access.",
-    image: quotation, 
+    content: "Positioned quotation tool below hero banner for immediate visibility after user interviews identified pricing as top priority.",
+    image: quotation1, 
     icon: <BadgeDollarSign size={24} />
   },
   {
     id: 2,
     title: "Intuitive Tabs for Comparison",
-    content: "To address the challenge of Union Faith's complex product structure with multiple variants and plans, I created intuitive tabs allowing users to easily compare pricing across different options.",
-    image: quotation,
+    content: "Created tabs for comparing complex product variants, simplifying decision-making between multiple insurance plans and options.",
+    image: quotation2,
     icon: <GitCompare size={24} />
   },
   {
     id: 3,
     title: "Smart Navigation",
-    content: "I designed the interface to subtly guide users through policy restrictions--such as family member limits and requirements--minimizing errors and helping them efficiently find suitable options without encountering frustrating dead ends.",
-    image: quotation,
+    content: "Subtle guidance through policy restrictions helps users find suitable options without encountering frustrating dead ends.",
+    image: quotation3,
     icon: <MapPlus size={24} />
   }
 ];
@@ -70,32 +78,39 @@ const quotationFeatures = [
 const purchaseFeatures = [
   {
     id: 1,
-    title: "Simplified Purchase Journey",
-    content: "After observing high drop-off rates at checkout, I redesigned the purchase flow from 7 steps to 4 intuitive steps with clear progress indicators. This intervention improved conversion rates by 28% for first-time insurance buyers.",
-    image: purchase, 
+    title: "User-Centered Purchase Flow",
+    content: "Designed 3-step journey with price transparency, clear navigation, and progress indicators to build user confidence.",
+    image: purchase1, 
     icon: <ShoppingCart size={24} />
   },
   {
     id: 2,
+    title: "Transparent Data Collection Form",
+    content: "Bilingual form with organized fields, real-time cost display, and logical grouping minimizes friction during information collection.",
+    image: purchase2,
+    icon: <ClipboardCheck size={24} />
+  },
+  {
+    id: 3,
     title: "Secure Transaction Experience",
-    content: "Security concerns were a major barrier in user testing. I addressed this by implementing clear purchase summaries, multiple payment options with recognizable security badges, and instant confirmation emails, resulting in a 15% increase in customer trust metrics.",
-    image: purchase,
-    icon: <ShoppingCart size={24} />
+    content: "Designed clear policy confirmation screen with purchase details, email verification notices, and account access information for post-purchase security.",
+    image: purchase3,
+    icon: <Shield size={24} />
   }
 ];
 
 const responsiveFeatures = [
   {
     id: 1,
-    title: "Responsive Design System",
-    content: "Analytics showed 65% of visitors were using mobile devices. I implemented a responsive design using fluid grids and flexible images, ensuring a seamless experience across desktop, tablet, and mobile devices without functionality compromises.",
-    image: mobile, 
+    title: "Responsive Design",
+    content: "I implemented a responsive design using fluid grids and flexible images, ensuring a seamless experience across desktop, tablet, and mobile devices without functionality compromises.",
+    image: responsive1, 
     icon: <Smartphone size={24} />
   },
   {
     id: 2,
     title: "Mobile-First Approach",
-    content: "I advocated for a mobile-first strategy, designing touch-friendly interfaces with larger tap targets, simplified navigation patterns, and performance optimizations for slower connections. This approach reduced mobile bounce rates by 23%.",
+    content: "I advocated for a mobile-first strategy, designing touch-friendly interfaces with larger tap targets, simplified navigation patterns, and performance optimizations for slower connections.",
     image: mobile,
     icon: <Smartphone size={24} />
   }
@@ -130,19 +145,19 @@ const featuresSections = {
     data: purchaseFeatures,
     title: "Streamlined Purchase Experience",
     description: "We transformed the traditionally complex insurance purchase process into a guided, transparent journey that builds customer confidence at each step.",
-    progressBarColor: "bg-[#84C4C2]",
+    progressBarColor: "bg-[#418A8B]",
   },
   responsive: {
     data: responsiveFeatures,
     title: "Cross-Device Accessibility",
     description: "A critical requirement was ensuring the platform performed flawlessly across all devices, with special attention to mobile users who represent our fastest-growing segment.",
-    progressBarColor: "bg-[#78D0C8]",
+    progressBarColor: "bg-[#418A8B]",
   },
   style: {
     data: styleFeatures,
     title: "Brand & Design System",
     description: "Beyond functional improvements, we elevated the visual design to enhance trust while establishing a foundation for consistent future development.",
-    progressBarColor: "bg-[#538A8A]",
+    progressBarColor: "bg-[#418A8B]",
   }
 };
 

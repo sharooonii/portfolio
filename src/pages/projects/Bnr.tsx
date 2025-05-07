@@ -1,7 +1,8 @@
 import desktopBeginning from "@/assets/portfolio/bnr/desktop-beginning.png";
 import mobileBeginning from "@/assets/portfolio/bnr/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/bnr/tablet-beginning.png";
-import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+// import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+import videoURL from "@/assets/portfolio/bnr/bnr-demo-video.mp4";
 import { featuresSections, projectTools } from "../data/bnrData";
 import { ProjectTemplate } from "./ProjectTemplate";
 

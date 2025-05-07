@@ -1,7 +1,8 @@
 import desktopBeginning from "@/assets/portfolio/unigel/desktop-beginning.png";
 import mobileBeginning from "@/assets/portfolio/unigel/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/unigel/tablet-beginning.png";
-import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+// import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+import videoURL from "@/assets/portfolio/unigel/unigel-demo-video.mp4";
 import { featuresSections, projectTools } from "../data/unigelData";
 import { ProjectTemplate } from "./ProjectTemplate";
 

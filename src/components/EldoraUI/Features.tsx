@@ -219,8 +219,8 @@ export function Features({
     <section ref={ref} id="features">
       <div className="container mx-auto space-y-16">
         <h1 className="portfolio-title">{sectionTitle}</h1>
-        <div className="grid h-full items-center gap-10 xl:grid-cols-3">
-          <div className="h-full xl:flex justify-start">
+        <div className="grid max-h-full items-center gap-10 xl:grid-cols-5">
+          <div className="h-full xl:col-span-2 xl:flex justify-start">
             <Accordion.Root
               className=""
               type="single"
@@ -269,13 +269,13 @@ export function Features({
               ))}
             </Accordion.Root>
           </div>
-          <div className="min-h-[calc(100vh-150px)] w-auto xl:col-span-2 rounded-xl bg-zinc-900 border border-neutral-300/50 shadow-lg overflow-hidden">
+          <div className="w-full h-[calc(100vh-280px)] xl:col-span-3 flex justify-center items-center rounded-xl bg-white border border-neutral-300/50 shadow-lg overflow-hidden">
             {data[currentIndex]?.image ? (
               <motion.img
                 key={currentIndex}
                 src={data[currentIndex].image}
                 alt="feature"
-                className="aspect-auto size-full object-cover object-left-top"
+                className="max-w-full h-auto"
                 initial={{ opacity: 0, x: 150 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -150 }}

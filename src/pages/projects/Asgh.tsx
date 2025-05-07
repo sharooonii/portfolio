@@ -1,7 +1,8 @@
 import desktopBeginning from "@/assets/portfolio/asgh/desktop-beginning.png";
 import mobileBeginning from "@/assets/portfolio/asgh/mobile-beginning.png";
 import tabletBeginning from "@/assets/portfolio/asgh/tablet-beginning.png";
-import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+// import videoURL from "@/assets/portfolio/unionfaith/unionfaith-demo-video.mp4";
+import videoURL from "@/assets/portfolio/asgh/asgh-demo-video.mp4";
 import { featuresSections, projectTools } from "../data/asghData";
 import { ProjectTemplate } from "./ProjectTemplate";
 
